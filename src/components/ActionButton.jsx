@@ -13,7 +13,7 @@ const ActionButton = ({ active, onClick, Icon, label, buttonRef }) => {
     <motion.button
       ref={buttonRef}
       className="w-[30px] h-[30px]  rounded-full
-                     hover:bg-amber-500 active:bg-amber-700 flex items-center justify-center"
+                     hover:bg-[#E50051] active:bg-amber-[#E50051] flex items-center justify-center"
       onClick={onClick}
       whileHover={buttonVariants.hover}
       whileTap={buttonVariants.tap}

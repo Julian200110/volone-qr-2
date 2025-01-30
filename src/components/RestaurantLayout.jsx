@@ -578,6 +578,15 @@ const RestaurantLayout = () => {
         }}
         className="fixed bottom-0  w-full lg:w-[415px] px-4 py-2 z-50 overflow-hidden mx-auto  bg-black "
       >
+        {cartItems.length > 0 && (
+          <span
+            className="absolute right-[125px] bg-[#E50051]
+                                 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center 
+                                 transform group-hover:scale-110 transition-transform duration-300 z-10"
+          >
+            {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
+          </span>
+        )}
         <div className="relative flex items-center justify-center gap-20">
           {/* Enlaces de navegación */}
           <a className="text-white hover:text-[#E50051] flex items-center justify-center">
