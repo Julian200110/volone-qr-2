@@ -9,3 +9,6 @@
   --max-width-restaurantLogo: 60%;
   zoom: 0;
 }
+* {
+  user-select: none;
+}

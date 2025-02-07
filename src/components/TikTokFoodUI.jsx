@@ -253,24 +253,23 @@ const TikTokFoodUI = () => {
         >
           <div className="max-w-screen-xl mx-auto flex items-center justify-center relative">
             {/* Flecha IZQUIERDA */}
-            {offset > 0 && (
-              <motion.button
-                onClick={() => {
-                  if (activeSectionIndex > 0) {
-                    const newIndex = activeSectionIndex - 1;
-                    setActiveSectionIndex(newIndex);
-                    if (swiperRef) swiperRef.slideTo(newIndex);
-                  }
-                }}
-                className="absolute left-0 p-2 focus:outline-none
+
+            <motion.button
+              onClick={() => {
+                if (activeSectionIndex > 0) {
+                  const newIndex = activeSectionIndex - 1;
+                  setActiveSectionIndex(newIndex);
+                  if (swiperRef) swiperRef.slideTo(newIndex);
+                }
+              }}
+              className="absolute left-0 p-2 focus:outline-none
                                rounded-lg text-gray-300 hover:text-white"
-                whileHover={buttonVariants.hover}
-                whileTap={buttonVariants.tap}
-                aria-label="Flecha izquierda"
-              >
-                <Icon icon="mdi:chevron-left" className="text-3xl" />
-              </motion.button>
-            )}
+              whileHover={buttonVariants.hover}
+              whileTap={buttonVariants.tap}
+              aria-label="Flecha izquierda"
+            >
+              <Icon icon="mdi:chevron-left" className="text-3xl" />
+            </motion.button>
 
             {/* Iconos (centrados) */}
             <div className="flex items-center justify-center gap-4 w-4/5">
@@ -300,24 +299,23 @@ const TikTokFoodUI = () => {
             </div>
 
             {/* Flecha DERECHA */}
-            {offset + buttonsToShow < totalSections && (
-              <motion.button
-                onClick={() => {
-                  if (activeSectionIndex < totalSections - 1) {
-                    const newIndex = activeSectionIndex + 1;
-                    setActiveSectionIndex(newIndex);
-                    if (swiperRef) swiperRef.slideTo(newIndex);
-                  }
-                }}
-                className="absolute right-0 p-2 focus:outline-none
+
+            <motion.button
+              onClick={() => {
+                if (activeSectionIndex < totalSections - 1) {
+                  const newIndex = activeSectionIndex + 1;
+                  setActiveSectionIndex(newIndex);
+                  if (swiperRef) swiperRef.slideTo(newIndex);
+                }
+              }}
+              className="absolute right-0 p-2 focus:outline-none
                                rounded-lg text-gray-300 hover:text-white"
-                whileHover={buttonVariants.hover}
-                whileTap={buttonVariants.tap}
-                aria-label="Flecha derecha"
-              >
-                <Icon icon="mdi:chevron-right" className="text-3xl" />
-              </motion.button>
-            )}
+              whileHover={buttonVariants.hover}
+              whileTap={buttonVariants.tap}
+              aria-label="Flecha derecha"
+            >
+              <Icon icon="mdi:chevron-right" className="text-3xl" />
+            </motion.button>
           </div>
         </motion.nav>
 
@@ -329,7 +327,7 @@ const TikTokFoodUI = () => {
             stiffness: 300,
             damping: 30,
           }}
-          className="fixed bottom-0  w-full lg:w-[415px] px-4 py-2 z-50 overflow-hidden mx-auto  bg-black "
+          className="fixed bottom-0  w-full lg:w-[415px] px-4 py-2 z-50 overflow-hidden mx-auto  "
         >
           {cartItems.length > 0 && (
             <span
@@ -340,7 +338,7 @@ const TikTokFoodUI = () => {
               {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
             </span>
           )}
-          <div className="relative flex items-center justify-center gap-20">
+          <div className="relative flex items-center justify-center gap-20 ">
             {/* Enlaces de navegación */}
             <a className="text-white hover:text-[#E50051] flex items-center justify-center">
               <svg

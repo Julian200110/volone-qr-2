@@ -3,8 +3,14 @@ import useStore from "../store/store";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaThumbsUp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import { SECTIONS, translations } from "../data/constants";
+import Modal from "./Modal";
 const CartComponent = () => {
   const { cartItems, updateQuantity } = useStore();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   const navigate = useNavigate();
   const [discountApplied, setDiscountApplied] = useState(false);
   const totalBeforeDiscount = cartItems.reduce((sum, item) => {
@@ -14,6 +20,196 @@ const CartComponent = () => {
 
   const discount = discountApplied ? totalBeforeDiscount * 0.15 : 0;
   const totalAfterDiscount = totalBeforeDiscount - discount;
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [showFullDetails, setShowFullDetails] = useState(false);
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      transition: { type: "spring", stiffness: 300, damping: 20 },
+    },
+    tap: { scale: 0.95 },
+  };
+  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
+  const [buttonsToShow, setButtonsToShow] = useState(5);
+  const [activeMode, setActiveMode] = useState("restaurante");
+  const currentSections =
+    activeMode === "restaurante" ? SECTIONS : SECTIONS_DISCOTECA;
+  const totalSections = currentSections.length;
+  const maxOffset =
+    totalSections - buttonsToShow >= 0 ? totalSections - buttonsToShow : 0;
+  const offset = Math.min(activeSectionIndex, maxOffset);
+  const visibleSections = currentSections.slice(offset, offset + buttonsToShow);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
+  const handleOpenPopup = (item) => {
+    setSelectedItem(item);
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+  const handleOpenModal = (item) => {
+    setSelectedItem(item);
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedItem(null);
+  };
+  const handleBack = () => {
+    setShowFullDetails(false);
+    setSelectedItem(null);
+  };
+  if (showFullDetails && selectedItem) {
+    const handleAddToCartAndGoCart = () => {
+      addToCart(selectedItem);
+      navigate("/cart");
+    };
+    const maxOffset =
+      totalSections - buttonsToShow >= 0 ? totalSections - buttonsToShow : 0;
+    const offset = Math.min(activeSectionIndex, maxOffset);
+    const visibleSections = currentSections.slice(
+      offset,
+      offset + buttonsToShow
+    );
+    return (
+      <div className="min-h-screen bg-black  w-full w-[415px] mx-auto">
+        <div className="container mx-auto  ">
+          <div>
+            <div className="relative">
+              <button
+                onClick={handleBack}
+                className="absolute top-4 left-4 text-white hover:text-[#E50051] transition-colors duration-300 z-10"
+              >
+                <FaArrowLeft className="text-2xl" />
+              </button>
+              <img
+                src={selectedItem.image}
+                alt={selectedItem.title}
+                className="w-full h-[250px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-100"></div>
+            </div>
+
+            <div className="p-8 bg-black">
+              <div className="flex justify-between items-start ">
+                <div>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="text-[20px] font-semibold text-white mb-1">
+                        {selectedItem.title}
+                      </h3>
+                      {selectedItem.isChefSuggestion && (
+                        <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
+                          <img
+                            src="/img/Sugerencia.svg"
+                            alt="Vector"
+                            className="mr-2 w-4 h-4"
+                          />
+                          <p>SUGERENCIA DEL CHEF</p>{" "}
+                        </div>
+                      )}
+                      <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
+                        <img
+                          src="/img/Principal.svg"
+                          alt="Vector"
+                          className="mr-2 w-4 h-4"
+                        />
+                        <p>PRINCIPALES</p>{" "}
+                      </div>
+                      <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
+                        <img
+                          src="/img/Comensal.svg"
+                          alt="Vector"
+                          className="mr-2 w-4 h-4"
+                        />
+                        <p>PARA 5 COMENSALES</p>{" "}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-base font-bold text-white border border-white rounded-[14px] p-2 flex flex-col w-[97px] h-[62.3px] items-center justify-center bg-[#A4A4A4]/50 backdrop-blur-md underline text-center">
+                  <p className="text-sm">Precio</p>{" "}
+                  {/* Tamaño más pequeño para "Precio" */}
+                  <p className="text-[14px]">{selectedItem.price}</p>{" "}
+                  {/* Tamaño más grande para el precio */}
+                </div>
+              </div>
+              <div className="border-b border-[#E50051]">
+                <p className="text-white text-[11px] text-justify mb-2">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <div className="justify-start text-center flex items-center text-[9px] text-[#989898] mb-2">
+                  <img
+                    src="/img/star.svg"
+                    alt="Vector"
+                    className="mr-2 w-4 h-4"
+                  />
+                  <p className="mr-2">2000 me gusta</p>
+                  <img
+                    src="/img/shopping.svg"
+                    alt="Vector"
+                    className="mr-2 w-4 h-4"
+                  />
+                  <p>+1000 pedidos</p>{" "}
+                </div>
+              </div>
+              <div className=" mt-2 mb-5">
+                <p className="text-white text-[16px] text-justify mb-2 underline">
+                  Alérgenos
+                </p>
+                <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] mb-2">
+                  <div className="flex flex-col items-center mr-2">
+                    <img
+                      src="/img/Icono.svg"
+                      alt="Vector"
+                      className="w-5 h-5"
+                    />
+                    <p className="text-white text-[12px] ">Huevos</p>
+                  </div>
+                  <div className="flex flex-col items-center mr-2">
+                    <img
+                      src="/img/Icono.svg"
+                      alt="Vector"
+                      className="w-5 h-5"
+                    />
+                    <p className="text-white text-[12px] ">Pescado</p>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img
+                      src="/img/Icono.svg"
+                      alt="Vector"
+                      className="w-5 h-5"
+                    />
+                    <p className="text-white text-[12px] ">Lacteos</p>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={handleAddToCartAndGoCart}
+                className="w-[170px] h-[27px] bg-black border border-[#E50051]
+             hover:from-[#e59200] hover:to-[#E50051] text-white  
+             rounded-full transition-all duration-500 text-[11px] font-semibold 
+             shadow-lg hover:shadow-[#E50051]/20 transform hover:-translate-y-1 
+             block mx-auto underline"
+              >
+                Agregar al pedido
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className="min-h-screen bg-black to-black w-full lg:w-[415px] mx-auto
@@ -45,13 +241,18 @@ const CartComponent = () => {
             {cartItems.map((item) => (
               <div
                 key={`{${item.id} - ${item.title}`}
-                className="bg-black overflow-hidden
-                          hover:shadow-[#f5a00c]/20 transition-all duration-500
-                          border border-gray-800/50 hover:border-[#E50051]
-                          backdrop-blur-sm group my-4 shadow-none" // Usamos shadow-none para evitar que haya sombra predeterminada
+                className={`bg-black overflow-hidden
+  hover:shadow-[#f5a00c]/20 transition-all duration-500
+  border border-gray-800/50 hover:border-[#E50051]
+  backdrop-blur-sm group my-4 shadow-none mb-10
+  ${isDelete ? "translate-x-[-30%] transition-transform duration-500 " : ""}
+`}
                 style={{
                   boxShadow:
                     "0px 4px 6px rgba(229, 0, 81, 0.3), 0px -4px 6px rgba(229, 0, 81, 0.3)",
+                  overflow: "hidden", // Asegúrate de que el contenido no se desborde
+                  maxWidth: "100%", // Limita el ancho si es necesario
+                  maxHeight: "100%", // Limita la altura si es necesario
                 }}
               >
                 <div className="md:flex">
@@ -87,9 +288,13 @@ const CartComponent = () => {
                           {item.description}
                         </p>
                         <button
+                          // onClick={() => {
+                          //   setSelectedItem(item);
+                          //   setShowFullDetails(true);
+                          // }}
                           onClick={() => {
+                            openModal();
                             setSelectedItem(item);
-                            setShowFullDetails(true);
                           }}
                           className="text-[9px] font-bold underline mt-0 inline-block text-white"
                         >
@@ -97,28 +302,83 @@ const CartComponent = () => {
                         </button>
                       </div>
                     </div>
-                    <div className="flex items-center justify-between border w-[70px] rounded-full px-2 bg-[#575757] h-[16px]">
-                      <button
-                        onClick={() =>
-                          updateQuantity(item.title, item.quantity - 1)
-                        }
-                        className="text-white 
-                                     "
-                      >
-                        -
-                      </button>
-                      <span className="text-white text-[10px] text-center">
-                        {item.quantity}
-                      </span>
-                      <button
-                        onClick={() =>
-                          updateQuantity(item.title, item.quantity + 1)
-                        }
-                        className="text-white  
-                                     "
-                      >
-                        +
-                      </button>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between border w-auto gap-2 rounded-full px-2 bg-[#575757] h-[16px]">
+                        <button
+                          onClick={() =>
+                            updateQuantity(item.title, item.quantity - 1)
+                          }
+                          className="text-[#868686] active:text-[#E50051]"
+                        >
+                          <svg
+                            width="8"
+                            height="3"
+                            viewBox="0 0 8 3"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              y="0.5"
+                              width="8"
+                              height="2"
+                              rx="1"
+                              className="fill-current"
+                            />
+                          </svg>
+                        </button>
+                        <span className="text-white text-[10px] text-center font-bold">
+                          {item.quantity}
+                        </span>
+                        <button
+                          onClick={() =>
+                            updateQuantity(item.title, item.quantity + 1)
+                          }
+                          className="text-[#868686] active:text-[#E50051]"
+                        >
+                          <svg
+                            width="8"
+                            height="9"
+                            viewBox="0 0 8 9"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M6.95398 3.45425H5.04603V1.54575C5.04603 0.968497 4.57845 0.5 4 0.5C3.42155 0.5 2.95398 0.968497 2.95398 1.54575V3.45425H1.04603C0.467573 3.45425 0 3.92274 0 4.5C0 5.07725 0.467573 5.54575 1.04603 5.54575H2.95398V7.45425C2.95398 8.0315 3.42155 8.5 4 8.5C4.57845 8.5 5.04603 8.0315 5.04603 7.45425V5.54575H6.95398C7.53243 5.54575 8 5.07725 8 4.5C8 3.92274 7.53243 3.45425 6.95398 3.45425Z"
+                              className="fill-current"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                      <div className="flex gap-3">
+                        <button>
+                          <svg
+                            width="13"
+                            height="12"
+                            viewBox="0 0 13 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M9.38593 0C8.91168 0 8.44201 0.0979435 8.00374 0.288302C7.5655 0.47865 7.16715 0.757709 6.83153 1.10967L6.49984 1.45736L6.16816 1.10967C5.49025 0.399058 4.57136 0.000326821 3.61376 0.000326846C2.65616 0.000326846 1.73727 0.399058 1.05936 1.10967C0.381368 1.82038 0 2.78488 0 3.79116C0 4.79743 0.381368 5.76194 1.05936 6.47264L6.2135 11.8754C6.37194 12.0415 6.62775 12.0415 6.78619 11.8754L11.9403 6.47271C12.276 6.12089 12.5426 5.70295 12.7245 5.24285C12.9063 4.7827 13 4.2894 13 3.79116C13 3.29291 12.9063 2.79961 12.7245 2.33947C12.5426 1.87939 12.2761 1.46155 11.9404 1.10974C11.6048 0.757747 11.2064 0.478663 10.7681 0.288302C10.3298 0.0979435 9.86018 0 9.38593 0Z"
+                              fill="#E50051"
+                            />
+                          </svg>
+                        </button>
+                        <button onClick={() => setIsDelete(true)}>
+                          <svg
+                            width="11"
+                            height="12"
+                            viewBox="0 0 11 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10.5 2H7.63636V1C7.63636 0.4485 7.20825 0 6.68182 0H3.81818C3.29175 0 2.86364 0.4485 2.86364 1V2H0V3H0.784636L1.59743 10.6655C1.67809 11.426 2.28995 12 3.02066 12H7.4612C8.19191 12 8.80377 11.4265 8.88396 10.6655L9.69675 3H10.4995L10.5 2ZM3.81818 1H6.68182V2H3.81818V1ZM7.93514 10.555C7.90841 10.8085 7.70461 11 7.46073 11H3.02066C2.77725 11 2.57298 10.8085 2.54625 10.555L1.74491 3H8.73695L7.93561 10.555H7.93514ZM3.36143 8.2715L4.57514 7L3.36143 5.7285L4.0363 5.0215L5.25 6.293L6.4637 5.0215L7.13857 5.7285L5.92486 7L7.13857 8.2715L6.4637 8.9785L5.25 7.707L4.0363 8.9785L3.36143 8.2715Z"
+                              fill="white"
+                            />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                     {/* <div className="flex justify-between items-center">
                         <div className="flex space-x-6">
@@ -260,6 +520,14 @@ const CartComponent = () => {
           </a>
         </div>
       </motion.nav>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        selectedItem={selectedItem}
+      >
+        <h2 className="text-xl font-bold mb-4">Este es un modal</h2>
+        <p>Contenido del modal...</p>
+      </Modal>
     </div>
   );
 };
