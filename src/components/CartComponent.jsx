@@ -524,10 +524,7 @@ const CartComponent = () => {
         isOpen={isModalOpen}
         onClose={closeModal}
         selectedItem={selectedItem}
-      >
-        <h2 className="text-xl font-bold mb-4">Este es un modal</h2>
-        <p>Contenido del modal...</p>
-      </Modal>
+      ></Modal>
     </div>
   );
 };

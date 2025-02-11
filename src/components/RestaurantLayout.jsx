@@ -312,7 +312,7 @@ const RestaurantLayout = () => {
    * Sección Principal
    ***************************************************/
   return (
-    <div className="min-h-screen w-full lg:w-[415px] bg-gradient-to-b from-gray-950 to-black relative mx-auto">
+    <div className="min-h-screen w-full lg:w-[415px] bg-black relative mx-auto">
       {/* MODAL / POP-UP renovado */}
       {showRatePopup && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
@@ -464,20 +464,21 @@ const RestaurantLayout = () => {
                   }}
                 >
                   <div className="md:flex">
-                    <div className="relative">
-                      {/* <img
-                        video={post.image}
+                    <div className="relative group w-[250px] h-[160px]">
+                      <img
+                        src={post.image}
                         alt={post.title}
-                        className="w-[250px] h-full object-cover md:rounded-t-none group-hover:translate-x-[-15%] transition-transform duration-500"
-                      />{" "} */}
+                        className="w-full h-full object-cover md:rounded-t-none transition-opacity duration-500 group-hover:opacity-0"
+                      />
+
+                      {/* Video que aparece en hover */}
                       <video
-                        src={post.video} // Asegúrate de tener un enlace al video en lugar de la imagen
+                        src={post.video}
                         autoPlay
                         muted
                         loop
-                        className="w-[250px] object-cover h-[160px] md:rounded-t-none"
+                        className="absolute top-0 left-0 w-full h-full object-cover md:rounded-t-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       />
-                      {/* Agregar overlay con difuminado a la derecha */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black opacity-100"></div>
                     </div>
 

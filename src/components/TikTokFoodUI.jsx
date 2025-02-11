@@ -39,7 +39,7 @@ const TikTokFoodUI = () => {
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
   const [swiperRef, setSwiperRef] = useState(null);
   const { language, setLanguage, cartItems, addToCart } = useStore();
-
+  const [titleSection, setTiltleSection] = useState(null);
   // Guardaremos refs a cada Swiper vertical
   const verticalSwipersRef = useRef([]);
 
@@ -49,7 +49,15 @@ const TikTokFoodUI = () => {
 
   // Cantidad de iconos en la barra inferior
   const [buttonsToShow, setButtonsToShow] = useState(5);
+  const [showLabel, setShowLabel] = useState(false);
 
+  useEffect(() => {
+    if (activeSectionIndex !== null) {
+      setShowLabel(true);
+      const timer = setTimeout(() => setShowLabel(false), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [activeSectionIndex]);
   useEffect(() => {
     function handleResize() {
       const w = window.innerWidth;
@@ -251,6 +259,17 @@ const TikTokFoodUI = () => {
           animate={{ y: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
+          {/* Mostrar label de la sección actual */}
+          {showLabel && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, ease: "easeIn" }}
+              className="absolute top-[70px] text-white text-[26px] underline inset-x-0 text-center"
+            >
+              {currentSections[activeSectionIndex]?.label || "Menu"}
+            </motion.div>
+          )}
           <div className="max-w-screen-xl mx-auto flex items-center justify-center relative">
             {/* Flecha IZQUIERDA */}
 
@@ -281,6 +300,8 @@ const TikTokFoodUI = () => {
                     key={section.id}
                     onClick={() => {
                       setActiveSectionIndex(realIndex);
+                      setTiltleSection(section.label);
+                      console.log(titleSection);
                       if (swiperRef) swiperRef.slideTo(realIndex);
                     }}
                     className={`flex flex-col items-center p-2 focus:outline-none rounded-lg w-1/5 ${

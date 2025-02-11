@@ -149,6 +149,7 @@ const PostComponent = ({ post, activeSection }) => {
 
       {/* BOTONES DE ACCIÓN (FAVORITO, AÑADIR) */}
       {/* BOTONES DE ACCIÓN (FAVORITO, AÑADIR) */}
+
       <div
         className="absolute flex flex-col gap-4 z-30 justify-center right-0"
         style={{
@@ -209,12 +210,13 @@ const PostComponent = ({ post, activeSection }) => {
           {/* DESTACADO*/}
           {post.isPrincipal && (
             <motion.p
-              className="text-base font-bold text-[#FF9F06]  p-2 flex  w-[150px] h-[25px] items-center justify-start bg-[#0000]/70 backdrop-blur-md text-center rounded-r-full flex items-center underline absolute left-0"
+              className="text-base font-bold text-[#FF9F06]  p-2 flex  w-[150px] h-[25px] items-center justify-start bg-[#0000]/70 backdrop-blur-md text-center rounded-r-full flex items-center underline relative left-0"
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
               style={{
-                bottom: "calc(var(--navbar-height) + 180px)", // Sube 10px
+                bottom: "20px",
+                left: "-20px",
               }}
             >
               <img
@@ -227,12 +229,13 @@ const PostComponent = ({ post, activeSection }) => {
           )}
           {post.isChefSuggestion && (
             <motion.p
-              className="text-base font-bold text-[#FF9F06]  p-2 flex  w-[166px] h-[25px] items-center justify-start bg-[#0000]/70 backdrop-blur-md text-center rounded-r-full flex items-center underline absolute left-0"
+              className="text-base font-bold text-[#FF9F06]  p-2 flex  w-[166px] h-[25px] items-center justify-start bg-[#0000]/70 backdrop-blur-md text-center rounded-r-full flex items-center underline relative left-0"
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
               style={{
-                bottom: "calc(var(--navbar-height) + 150px)", // Sube 10px
+                bottom: "10px",
+                left: "-20px",
               }}
             >
               <img

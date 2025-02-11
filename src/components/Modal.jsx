@@ -1,9 +1,12 @@
 import { useState, useRef, useEffect } from "react";
-
+import VariationComplements from "./VariationComplements";
 const Modal = ({ isOpen, onClose, selectedItem, children }) => {
   if (!isOpen) return null;
   const [text, setText] = useState("");
   const textareaRef = useRef(null);
+  const [isVariationlOpen, setIsVariationlOpen] = useState(false);
+  const openModal = () => setIsVariationlOpen(true);
+  const closeModal = () => setIsVariationlOpen(false);
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-black p-6 rounded-[14px] shadow-lg relative max-w-[360px] w-full border border-[#E50051] h-[580px]">
@@ -106,11 +109,24 @@ const Modal = ({ isOpen, onClose, selectedItem, children }) => {
                 Completa
               </button>
             </div>
-            <div className=" justify-start text-center flex items-center mb-3 gap-5">
+
+            <button
+              className=" justify-start text-center flex items-center mb-3"
+              onClick={() => {
+                openModal();
+              }}
+            >
+              <img
+                src="/img/Agregar2.svg"
+                alt="Vector"
+                className="mr-2 w-4 h-4"
+              />
+
               <p className="text-white text-[12px] text-justify underline">
                 Variaciones y complementos
               </p>
-            </div>
+            </button>
+
             <div className="mb-2">
               <p className="text-white text-[12px] text-justify mb-2 underline">
                 Observaciones
@@ -135,6 +151,10 @@ const Modal = ({ isOpen, onClose, selectedItem, children }) => {
           </div>
         </div>
       </div>
+      <VariationComplements
+        isOpen={isVariationlOpen}
+        selectedItem={selectedItem}
+      ></VariationComplements>
     </div>
   );
 };
