@@ -1,195 +1,139 @@
-import React, { useState, useRef } from "react";
-import { FaHeart, FaPlus, FaArrowLeft } from "react-icons/fa";
-import { FiShoppingCart } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import useStore from "../store/store";
-import { SECTIONS } from "../data/constants";
+import { FaHeart, FaPlus, FaArrowLeft } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { Icon } from "@iconify/react";
-import MenuItem from "./MenuItem";
 
-const RestaurantLayout = () => {
-  const navigate = useNavigate();
-
-  const { cartItems } = useStore();
-
-  const [showRatePopup, setShowRatePopup] = useState(false);
-  const [popupMessage] = useState(
-    "Califica este plato en Google Maps para recibir un 15% de descuento."
-  );
-
-  const buttonVariants = {
-    hover: {
-      scale: 1.05,
-      transition: { type: "spring", stiffness: 300, damping: 20 },
-    },
-    tap: { scale: 0.95 },
+const MenuItemDetail = () => {
+  const handleAddToCartAndGoCart = () => {
+    addToCart(selectedItem);
+    navigate("/cart");
   };
-  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
-  const [buttonsToShow, setButtonsToShow] = useState(5);
-  const [activeMode, setActiveMode] = useState("restaurante");
-  const currentSections =
-    activeMode === "restaurante" ? SECTIONS : SECTIONS_DISCOTECA;
-  const totalSections = currentSections.length;
-  const maxOffset =
-    totalSections - buttonsToShow >= 0 ? totalSections - buttonsToShow : 0;
-  const offset = Math.min(activeSectionIndex, maxOffset);
-  const visibleSections = currentSections.slice(offset, offset + buttonsToShow);
+  const { selectedItem, setSelectedItem, cartItems } = useStore();
 
-  /***************************************************
-   * Sección de Detalles
-   ***************************************************/
+  const handleBack = () => {
+    setSelectedItem(null);
+    navigate(-1);
+  };
 
-  /***************************************************
-   * Sección Principal
-   ***************************************************/
   return (
-    <div className="min-h-screen w-full lg:w-[415px] bg-black relative mx-auto">
-      {/* MODAL / POP-UP renovado */}
-      {showRatePopup && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-gray-950/80 border border-gray-800/50 rounded-2xl p-8 shadow-2xl w-full max-w-md text-center">
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-[#f5a00c] to-[#e59200] bg-clip-text text-transparent mb-4">
-              ¡Atención!
-            </h2>
-            <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              {popupMessage}
-            </p>
+    <div className="min-h-screen bg-black  w-full lg:w-[415px] mx-auto">
+      <div className="container mx-auto  ">
+        <div>
+          <div className="relative">
             <button
-              onClick={() => setShowRatePopup(false)}
-              className="bg-gradient-to-r from-[#f5a00c] to-[#e59200] 
-                         hover:from-[#e59200] hover:to-[#f5a00c] 
-                         text-white py-3 px-6 rounded-xl transition-all duration-500 
-                         transform hover:-translate-y-1 font-semibold shadow-lg 
-                         hover:shadow-[#f5a00c]/20"
-            >
-              Calificar
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Header */}
-      {/* <header className="backdrop-blur-lg bg-gray-950/80 shadow-2xl border-b border-gray-800/50 sticky top-0 z-10">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <button
-              className="text-white hover:text-[#f5a00c] transition-colors duration-300"
-              onClick={() => navigate("/slider")}
+              onClick={handleBack}
+              className="absolute top-4 left-4 text-white hover:text-[#E50051] transition-colors duration-300 z-10"
             >
               <FaArrowLeft className="text-2xl" />
             </button>
-            <h1 className="text-3xl font-bold text-white">
-              {translations[language].title}
-            </h1>
-            <div className="flex items-center space-x-4">
-              <div className="relative">
-                <button
-                  onClick={() => navigate("/cart")}
-                  className="relative group"
-                >
-                  <FiShoppingCart className="text-2xl text-white group-hover:text-[#f5a00c] transition-colors duration-300" />
-                  {cartItems.length > 0 && (
-                    <span
-                      className="absolute -top-2 -right-2 bg-gradient-to-r from-[#f5a00c] to-[#e59200] 
-                                 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center 
-                                 transform group-hover:scale-110 transition-transform duration-300"
-                    >
-                      {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
-                    </span>
-                  )}
-                </button>
+            <img
+              src={selectedItem.image}
+              alt={selectedItem.title}
+              className="w-full h-[250px] object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-100"></div>
+          </div>
+
+          <div className="p-8 bg-black">
+            <div className="flex justify-between items-start ">
+              <div>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="text-[20px] font-semibold text-white mb-1">
+                      {selectedItem.title}
+                    </h3>
+                    {selectedItem.isChefSuggestion && (
+                      <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
+                        <img
+                          src="/img/Sugerencia.svg"
+                          alt="Vector"
+                          className="mr-2 w-4 h-4"
+                        />
+                        <p>SUGERENCIA DEL CHEF</p>{" "}
+                      </div>
+                    )}
+                    <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
+                      <img
+                        src="/img/Principal.svg"
+                        alt="Vector"
+                        className="mr-2 w-4 h-4"
+                      />
+                      <p>PRINCIPALES</p>{" "}
+                    </div>
+                    <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
+                      <img
+                        src="/img/Comensal.svg"
+                        alt="Vector"
+                        className="mr-2 w-4 h-4"
+                      />
+                      <p>PARA 5 COMENSALES</p>{" "}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <select
-                value={language}
-                onChange={(e) => setLanguage(e.target.value)}
-                className="appearance-none bg-gray-800/50 text-white py-2 px-4 rounded-lg 
-                           cursor-pointer border border-gray-700/50 
-                           hover:border-[#f5a00c] transition-all duration-300 
-                           backdrop-blur-sm focus:outline-none 
-                           focus:ring-2 focus:ring-[#f5a00c]/50"
-              >
-                <option value="en">EN</option>
-                <option value="es">ES</option>
-                <option value="fr">FR</option>
-              </select>
+
+              <div className="text-base font-bold text-white border border-white rounded-[14px] p-2 flex flex-col w-[97px] h-[62.3px] items-center justify-center bg-[#A4A4A4]/50 backdrop-blur-md underline text-center">
+                <p className="text-sm">Precio</p>{" "}
+                {/* Tamaño más pequeño para "Precio" */}
+                <p className="text-[14px]">{selectedItem.price}</p>{" "}
+                {/* Tamaño más grande para el precio */}
+              </div>
             </div>
-          </div>
-        </div>
-      </header> */}
-      <motion.nav
-        className="fixed top-0 backdrop-blur-md bg-black/60
-                         px-4 py-2 z-50 w-full lg:w-[415px] "
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      >
-        <div className="max-w-screen-xl mx-auto flex items-center justify-center relative">
-          {/* Flecha IZQUIERDA */}
-          {offset > 0 && (
-            <motion.button
-              className="absolute left-0 p-2 focus:outline-none
-                               rounded-lg text-gray-300 hover:text-white"
-              whileHover={buttonVariants.hover}
-              whileTap={buttonVariants.tap}
-              aria-label="Flecha izquierda"
-            >
-              <Icon icon="mdi:chevron-left" className="text-3xl" />
-            </motion.button>
-          )}
-
-          {/* Iconos (centrados) */}
-          <div className="flex items-center justify-center gap-4 w-4/5">
-            {visibleSections.map((section) => {
-              const IconComp = section.icon;
-              const realIndex = currentSections.indexOf(section);
-              return (
-                <motion.button
-                  key={section.id}
-                  className={`flex flex-col items-center p-2 focus:outline-none rounded-lg w-1/5 ${
-                    activeSectionIndex === realIndex
-                      ? "text-[#E50051]"
-                      : "text-white hover:text-[#E50051]"
-                  }`}
-                  aria-label={section.label}
-                  whileHover={buttonVariants.hover}
-                  whileTap={buttonVariants.tap}
-                >
-                  <IconComp className="text-3xl" />
-                </motion.button>
-              );
-            })}
-          </div>
-
-          {/* Flecha DERECHA */}
-          {offset + buttonsToShow < totalSections && (
-            <motion.button
-              className="absolute right-0 p-2 focus:outline-none
-                               rounded-lg text-gray-300 hover:text-white"
-              whileHover={buttonVariants.hover}
-              whileTap={buttonVariants.tap}
-              aria-label="Flecha derecha"
-            >
-              <Icon icon="mdi:chevron-right" className="text-3xl" />
-            </motion.button>
-          )}
-        </div>
-      </motion.nav>
-      {/* Lista de productos */}
-      <main className="container mx-auto px-0 py-2 mb-8 mt-[50px]">
-        <div className="space-y-2">
-          {SECTIONS.map((section, sectionIndex) => (
-            <div key={section.id} className="pb-2">
-              <p className="text-[25px] font-bold mt-3 text-center underline ">
-                {section.label}
+            <div className="border-b border-[#E50051]">
+              <p className="text-white text-[11px] text-justify mb-2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
               </p>
-              {section.posts.map((post, postIndex) => (
-                <MenuItem key={postIndex} post={post} postIndex={postIndex} />
-              ))}
+              <div className="justify-start text-center flex items-center text-[9px] text-[#989898] mb-2">
+                <img
+                  src="/img/star.svg"
+                  alt="Vector"
+                  className="mr-2 w-4 h-4"
+                />
+                <p className="mr-2">2000 me gusta</p>
+                <img
+                  src="/img/shopping.svg"
+                  alt="Vector"
+                  className="mr-2 w-4 h-4"
+                />
+                <p>+1000 pedidos</p>{" "}
+              </div>
             </div>
-          ))}
+            <div className=" mt-2 mb-5">
+              <p className="text-white text-[16px] text-justify mb-2 underline">
+                Alérgenos
+              </p>
+              <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] mb-2">
+                <div className="flex flex-col items-center mr-2">
+                  <img src="/img/Icono.svg" alt="Vector" className="w-5 h-5" />
+                  <p className="text-white text-[12px] ">Huevos</p>
+                </div>
+                <div className="flex flex-col items-center mr-2">
+                  <img src="/img/Icono.svg" alt="Vector" className="w-5 h-5" />
+                  <p className="text-white text-[12px] ">Pescado</p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <img src="/img/Icono.svg" alt="Vector" className="w-5 h-5" />
+                  <p className="text-white text-[12px] ">Lacteos</p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={handleAddToCartAndGoCart}
+              className="w-[170px] h-[27px] bg-black border border-[#E50051]
+             hover:from-[#e59200] hover:to-[#E50051] text-white  
+             rounded-full transition-all duration-500 text-[11px] font-semibold 
+             shadow-lg hover:shadow-[#E50051]/20 transform hover:-translate-y-1 
+             block mx-auto underline"
+            >
+              Agregar al pedido
+            </button>
+          </div>
         </div>
-      </main>
+      </div>
       <motion.nav
         initial={{ y: 100 }}
         animate={{ y: 0 }}
@@ -280,4 +224,4 @@ const RestaurantLayout = () => {
   );
 };
 
-export default RestaurantLayout;
+export default MenuItemDetail;

@@ -4,6 +4,7 @@ const useStore = create((set) => ({
   cartItems: [],
   favorites: [],
   language: "es",
+  selectedItem: null,
 
   addToCart: (item) =>
     set((state) => {
@@ -45,6 +46,7 @@ const useStore = create((set) => ({
     })),
 
   setLanguage: (language) => set(() => ({ language })),
+  setSelectedItem: (selectedItem) => set(() => ({ selectedItem })),
 }));
 
 export default useStore;

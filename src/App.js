@@ -4,6 +4,7 @@ import HomePage from "./components/TikTokFoodUI";
 import RestaurantLayout from "./components/RestaurantLayout";
 import SplashVideo from "./components/SplashVideo";
 import CartComponent from "./components/CartComponent";
+import MenuItemDetail from "./components/MenuItemDetail";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/slider" element={<HomePage />} />
           <Route path="/menu" element={<RestaurantLayout />} />
           <Route path="/cart" element={<CartComponent />} />
+          <Route path="/details" element={<MenuItemDetail />} />
         </Routes>
       </div>
     </Router>
