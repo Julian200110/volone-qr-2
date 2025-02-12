@@ -24,7 +24,6 @@ const RestaurantLayout = () => {
 
   const [selectedItem, setSelectedItem] = useState(null);
   const [showFullDetails, setShowFullDetails] = useState(false);
-  
 
   const videoRef = useRef(null);
 
@@ -402,7 +401,7 @@ const RestaurantLayout = () => {
       <main className="container mx-auto px-0 py-2 mb-8 mt-[50px]">
         <div className="space-y-2">
           {SECTIONS.map((section, sectionIndex) => (
-            <div key={section.id}>
+            <div key={section.id} className="pb-2">
               <p className="text-[25px] font-bold mt-3 text-center underline ">
                 {section.label}
               </p>
