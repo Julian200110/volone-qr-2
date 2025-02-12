@@ -1,18 +1,13 @@
 import PropTypes from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  AiFillHeart,
-  AiOutlineHeart,
-  AiFillPlusCircle,
-  AiOutlinePlusCircle,
-} from "react-icons/ai";
+
 import ActionButton from "./ActionButton";
 import { TiThMenuOutline } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
 import useStore from "../store/store";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { translations } from "../data/constants";
-
+import useInView from "../hooks/useInView";
 const buttonVariants = {
   hover: {
     scale: 1.05,
@@ -85,6 +80,22 @@ const PostComponent = ({ post, activeSection }) => {
     }
   };
 
+  const [isPlaying, setIsPlaying] = useState(false);
+  const containerRef = useRef(null);
+  const videoRef = useRef(null);
+  const isInView = useInView(containerRef, { threshold: 0 });
+  const shouldPlay = useInView(videoRef, { threshold: 0.85 });
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (shouldPlay) {
+        videoRef.current.play().catch((err) => console.log("Play error:", err));
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  }, [shouldPlay]);
   return (
     <motion.div
       key={`${activeSection}-${post.id}`}
@@ -98,28 +109,30 @@ const PostComponent = ({ post, activeSection }) => {
     >
       {/* FONDO: VIDEO (o fallback) */}
       <motion.div className="absolute inset-0">
-        {post.video ? (
-          <motion.video
-            src={post.video}
-            className="w-full h-full object-cover pointer-events-none"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          />
-        ) : (
-          <motion.img
-            src={post.image}
-            className="w-full h-full object-cover pointer-events-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          />
-        )}
+        <motion.img
+          src={post.image}
+          className="absolute w-full h-full object-cover pointer-events-none"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: isPlaying ? 0 : 1 }}
+          transition={{ duration: 0.5 }}
+        />
+        <div className="w-full h-full" ref={containerRef}>
+          {isInView && (
+            <motion.video
+              ref={videoRef}
+              src={post.video}
+              className="w-full h-full object-cover pointer-events-none"
+              loop
+              muted
+              playsInline
+              preload="auto"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              onPlaying={() => setIsPlaying(true)}
+            />
+          )}
+        </div>
 
         {/* Gradiente para legibilidad */}
         <div

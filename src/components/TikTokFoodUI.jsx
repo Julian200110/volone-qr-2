@@ -27,7 +27,6 @@ import "./TikTokFoodUI.css";
 
 // ===================== COMPONENTE PRINCIPAL =====================
 const TikTokFoodUI = () => {
-  const [showIntro, setShowIntro] = useState(true);
   const [expandedPost, setExpandedPost] = useState(null);
   const [showLanguageModal, setShowLanguageModal] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("es");

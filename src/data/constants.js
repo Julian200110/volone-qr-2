@@ -74,14 +74,14 @@ const DATA = {
         "Finas lonchas cortadas a mano, sabor y elegancia en cada bocado.",
       video: `${VIDEO_BASE_URL}JAMÓN IBERICO DE BELLOTA.mp4`,
       isChefSuggestion: true,
-      isPrincipal: true,
-      isHighlight: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}JAMÓN IBERICO DE BELLOTA_001.jpg`,
+      allergens: ["almendras"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 2,
@@ -93,13 +93,15 @@ const DATA = {
       longDescription:
         "Láminas de cecina curada artesanalmente, con aceite de oliva virgen extra.",
       video: `${VIDEO_BASE_URL}CECINA DE LA CASA.mp4`,
-      isChefSuggestion: false,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      isChefSuggestion: true,
+      image: `${VIDEO_BASE_URL}CECINA.jpeg`,
+      allergens: ["almendras"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 3,
@@ -112,13 +114,14 @@ const DATA = {
         "Una exclusiva selección de quesos con carácter y tradición.",
       video: `${VIDEO_BASE_URL}TABLA DE QUESOS ARTESANOS.mp4`,
       isChefSuggestion: true,
-      isPrincipal: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}TABLA DE QUESOS ARTESANOS_027.jpg`,
+      allergens: ["almendras", "mani"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 4,
@@ -131,12 +134,14 @@ const DATA = {
         "Delicadas anchoas, servidas con pan tostado crujiente con queso azul ahumado.",
       video: `${VIDEO_BASE_URL}ANCHOAS.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}ANCHOAS_024.jpg`,
+      allergens: ["cereales", "pescado"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 5,
@@ -149,15 +154,53 @@ const DATA = {
         "Un vibrante encuentro de mariscos frescos, en una sedosa crema de ajo.",
       video: `${VIDEO_BASE_URL}ZAMBURIÑA A LA BRASA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}ZAMBURIÑA A LA BRASA_000.jpg`,
+      allergens: ["mejillones", "crustaceos"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
   ],
   entrantes: [
+    {
+      id: 10,
+      title: "Chorizo criollo a la brasa",
+      author: "chef",
+      price: "4,50€",
+      description: "",
+      longDescription: "",
+      video: `${VIDEO_BASE_URL}CHORIZO CRIOLLO A LA BRASA.mp4`,
+      isChefSuggestion: true,
+      image: `${VIDEO_BASE_URL}CHORIZO CRIOLLO A LA BRASA_026.jpg`,
+      allergens: [],
+      ingredients:
+        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
+      nutritionalInfo:
+        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
+    },
+    {
+      id: 11,
+      title: "Morcilla criolla a la brasa",
+      author: "chef",
+      price: "4,50€",
+      description: "",
+      longDescription: "",
+      video: `${VIDEO_BASE_URL}MORCILLA CRIOLLA A LA BRASA.mp4`,
+      isChefSuggestion: true,
+      image: `${VIDEO_BASE_URL}MORCILLA CRIOLLA A LA BRASA_048.jpg`,
+      allergens: [],
+      ingredients:
+        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
+      nutritionalInfo:
+        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
+    },
     {
       id: 1,
       title: "Croquetas de Cecina",
@@ -169,12 +212,14 @@ const DATA = {
         "Crujientes por fuera, cremosas por dentro, con papada ibérica.",
       video: `${VIDEO_BASE_URL}CROQUETAS DE CECINA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}CROQUETAS DE CECINA_019.jpg`,
+      allergens: ["cereales", "mani", "ajonjoli"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 2,
@@ -187,12 +232,32 @@ const DATA = {
         "Bonito al carbón con guindillas en vinagre, para un toque vibrante.",
       video: `${VIDEO_BASE_URL}ENSALADILLA DE VENTRESCA AL CARBÓN.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}ENSALADILLA DE VENTRESCA AL CARBÓN_044.jpg`,
+      allergens: ["pescado", "mani", "ajonjoli"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
+    },
+    {
+      id: 6,
+      title: "Provoleta",
+      author: "chef",
+      price: "10,50€",
+      description: "",
+      longDescription: "",
+      video: `${VIDEO_BASE_URL}PROVOLETA.mp4`,
+      isChefSuggestion: true,
+      image: `${VIDEO_BASE_URL}PROVOLETA_000.jpg`,
+      allergens: ["ajonjoli", "mani"],
+      ingredients:
+        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
+      nutritionalInfo:
+        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 3,
@@ -205,12 +270,14 @@ const DATA = {
         "Crujiente y jugoso, acompañado de batata asada y mojo versión la reserva.",
       video: `${VIDEO_BASE_URL}TORREZNO DE SORIA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}TORREZNO DE SORIA_000.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 4,
@@ -221,12 +288,14 @@ const DATA = {
       longDescription: "Nuestra salsa tradicional en una explosión de sabor.",
       video: `${VIDEO_BASE_URL}PATATAS BRAVAS.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}PATATAS BRAVAS_000.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 5,
@@ -239,28 +308,14 @@ const DATA = {
         "Con carrillera de ternera y yema trufada. Un deleite gourmet.",
       video: `${VIDEO_BASE_URL}ALCACHOFAS CONFITADAS.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}ALCACHOFAS CONFITADAS_014.jpg`,
+      allergens: ["ajonjoli"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
-    },
-    {
-      id: 6,
-      title: "Merluza a la Romana",
-      author: "chef",
-      price: "16,00€",
-      description: "Merluza dorada con alioli de cebollino.",
-      longDescription: "Merluza dorada con alioli de cebollino.",
-      video: `${VIDEO_BASE_URL}Merluza a la Romana.mp4`,
-      isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
-      ingredients:
-        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
-      nutritionalInfo:
-        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 7,
@@ -273,12 +328,14 @@ const DATA = {
         "Un suculento homenaje a los sabores tradicionales, con un toque innovador.",
       video: `${VIDEO_BASE_URL}TORTILLA CREMOSA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}TORTILLA CREMOSA_012.jpg`,
+      allergens: ["ajonjoli"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 8,
@@ -290,12 +347,14 @@ const DATA = {
         "Asada al Josper con salsa napolitana y parmesano fundido.",
       video: `${VIDEO_BASE_URL}BERENJENA AL JOSPER.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}BERENJENA AL JOSPER_000.jpg`,
+      allergens: ["mani"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 9,
@@ -308,12 +367,14 @@ const DATA = {
         "Pulpo braseado, servido con batata asada y alioli de sobrasada.",
       video: `${VIDEO_BASE_URL}PULPO A LA BRASA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}PULPO A LA BRASA_014.jpg`,
+      allergens: ["mejillones", "mani", "ajonjoli"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
   ],
   frescos: [
@@ -328,12 +389,14 @@ const DATA = {
         "Tomate de temporada con cebolla fresca y aceite de oliva virgen extra. Frescura y sabor auténtico.",
       video: `${VIDEO_BASE_URL}TOMATE ECOLÓGICO ALIÑADO.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}TOMATE ECOLÓGICO ALIÑADO_046.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 2,
@@ -346,12 +409,14 @@ const DATA = {
         "Mezclume fresca, Queso azul, manzana, nuez caramelizada, aceite de oliva ahumado y tomates Cherry. Un placer elegante y sabroso.",
       video: `${VIDEO_BASE_URL}ENSALADA FRESCA LA RESERVA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}ENSALADA FRESCA LA RESERVA_026.jpg`,
+      allergens: ["almendras", "mani"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 3,
@@ -364,12 +429,14 @@ const DATA = {
         "Lechuga romana con salmón ahumado y nuestra salsa casar de calamatas.",
       video: `${VIDEO_BASE_URL}CÉSAR DE SALMÓN.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}CÉSAR DE SALMÓN_018.jpg`,
+      allergens: ["pescado", "mani", "soja", "ajonjoli"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 4,
@@ -381,12 +448,14 @@ const DATA = {
       longDescription: "Una ensalada simple y deliciosa.",
       video: `${VIDEO_BASE_URL}ENSALADA MIXTA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}ENSALADA MIXTA_012.jpg`,
+      allergens: ["soja"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
   ],
   marytierra: [
@@ -400,12 +469,33 @@ const DATA = {
       longDescription: "Precio por persona.",
       video: `${VIDEO_BASE_URL}PAELLA DEL MAR.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}PAELLA DEL MAR_037.jpg`,
+      allergens: ["mejillones", "crustaceos", "pescado"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
+    },
+    {
+      id: 6,
+      title: "Arroz negro del mar",
+      author: "chef",
+      price: "22,00€",
+      description: "Arroz con sofrito y tinta de calamar.",
+      longDescription:
+        "Arroz con sofrito y tinta de calamar, aceite de oliva cocinado con gambas, anillas de pota mejillones y alcachofas",
+      video: `${VIDEO_BASE_URL}ARROZ NEGRO DEL MAR.mp4`,
+      isChefSuggestion: true,
+      image: `${VIDEO_BASE_URL}ARROZ NEGRO DEL MAR_046.jpg`,
+      allergens: ["crustaceos", "pescado"],
+      ingredients:
+        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
+      nutritionalInfo:
+        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 2,
@@ -417,12 +507,14 @@ const DATA = {
       longDescription: "Una combinación rica y memorable. Precio por persona.",
       video: `${VIDEO_BASE_URL}PAELLA VALENCIANA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}PAELLA VALENCIANA_022.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 3,
@@ -435,12 +527,14 @@ const DATA = {
         "Una celebración de la buena carne, con patatas y pimientos del piquillo caramelizados.",
       video: `${VIDEO_BASE_URL}CHULETONES DE VACA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}CHULETONES DE VACA_038.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 4,
@@ -452,16 +546,18 @@ const DATA = {
       longDescription: "Cada bocado con un sabor profundo e inigualable.",
       video: `${VIDEO_BASE_URL}CARRILLERA DE TERNERA EN SU JUGO.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}CARRILLERA DE TERNERA EN SU JUGO_019.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 5,
-      title: "Solomillo de vaca– con batata asada",
+      title: "Solomillo de vaca con batata asada",
       author: "chef",
       price: "26,00€",
       description:
@@ -469,12 +565,33 @@ const DATA = {
       longDescription: "Un sabor inigualable.",
       video: `${VIDEO_BASE_URL}SOLOMILLO DE VACA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}SOLOMILLO DE VACA_022.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
+    },
+    {
+      id: 7,
+      title: "Hamburguesa Braseada la mijina, de vaca",
+      author: "chef",
+      price: "14,00€",
+      description: "Carne curada a la brasa, bacon crujiente.",
+      longDescription:
+        "Carne curada a la brasa, bacon crujiente, queso cheddar, cebolla morada salteada, pepinillos y mayonesa secreta en suave pan de patata.",
+      video: `${VIDEO_BASE_URL}BURGUER CON PATATAS.mp4`,
+      isChefSuggestion: true,
+      image: `${VIDEO_BASE_URL}BURGUER CON PATATAS_072.jpg`,
+      allergens: ["mani", "ajonjoli", "cereales"],
+      ingredients:
+        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
+      nutritionalInfo:
+        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 8,
@@ -485,12 +602,69 @@ const DATA = {
       longDescription: "Un sabor auténtico.",
       video: `${VIDEO_BASE_URL}LOMO BAJO TRINCHADO.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}LOMO BAJO TRINCHADO_007.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
+    },
+    {
+      id: 9,
+      title: "Entraña al josper",
+      author: "chef",
+      price: "18,00€",
+      description: "",
+      longDescription: "",
+      video: `${VIDEO_BASE_URL}ENTRAÑA AL JOSPER.mp4`,
+      isChefSuggestion: true,
+      image: `${VIDEO_BASE_URL}ENTRAÑA AL JOSPER_019.jpg`,
+      allergens: [],
+      ingredients:
+        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
+      nutritionalInfo:
+        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
+    },
+    {
+      id: 10,
+      title: "SALMON A LA PARRILLA",
+      author: "chef",
+      price: "22,00€",
+      description: "Jugoso y con un toque ahumado",
+      longDescription:
+        "Jugoso y con un toque ahumado, glaseado con nuestra salsa teriyaki casera para un equilibrio perfecto de sabores dulces y salados",
+      video: `${VIDEO_BASE_URL}SALMON A LA PARRILLA.mp4`,
+      isChefSuggestion: true,
+      image: `${VIDEO_BASE_URL}SALMON A LA PARRILLA_001.jpg`,
+      allergens: ["pescado"],
+      ingredients:
+        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
+      nutritionalInfo:
+        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
+    },
+    {
+      id: 11,
+      title: "Tataki de atún fresco",
+      author: "chef",
+      price: "28,00€",
+      description: "",
+      longDescription: "",
+      video: `${VIDEO_BASE_URL}TATAKI DE ATÚN FRESCO.mp4`,
+      isChefSuggestion: true,
+      image: `${VIDEO_BASE_URL}TATAKI DE ATÚN FRESCO_041.jpg`,
+      allergens: ["pescado"],
+      ingredients:
+        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
+      nutritionalInfo:
+        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
   ],
   infantil: [
@@ -504,12 +678,14 @@ const DATA = {
       longDescription: "Un plato simple y sabroso que encantará a los niños.",
       video: `${VIDEO_BASE_URL}PASTA NAPOLITANA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}PASTA NAPOLITANA_017.jpg`,
+      allergens: ["ajonjoli", "cereales"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 2,
@@ -522,15 +698,35 @@ const DATA = {
         "Ideal para nuestros pequeños exploradores culinarios. Postre: Helado.",
       video: `${VIDEO_BASE_URL}BURGUER CON PATATAS.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}BURGUER CON PATATAS_072.jpg`,
+      allergens: ["mani", "cereales"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
   ],
   dulces: [
+    {
+      id: 1,
+      title: "Crepe rellena caramelo",
+      author: "chef",
+      price: "6,50€",
+      description: "Delicioso crepe relleno de caramelo.",
+      longDescription: "Delicioso crepe relleno de caramelo.",
+      video: `${VIDEO_BASE_URL}CREPE RELLENA CARAMELO.mp4`,
+      isChefSuggestion: true,
+      image: `${VIDEO_BASE_URL}CREPE RELLENA CARAMELO_021.jpg`,
+      allergens: ["ajonjoli", "cereales", "mani"],
+      ingredients:
+        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
+      nutritionalInfo:
+        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
+    },
     {
       id: 2,
       title: "Tarta de Queso Manchego",
@@ -540,12 +736,14 @@ const DATA = {
       longDescription: "Un postre tradicional.",
       video: `${VIDEO_BASE_URL}TARTA DE QUESO MANCHEGO.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}TARTA DE QUESO MANCHEGO_007.jpg`,
+      allergens: ["ajonjoli", "cereales", "almendras"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 3,
@@ -556,12 +754,14 @@ const DATA = {
       longDescription: "Un placer dulce y crujiente.",
       video: `${VIDEO_BASE_URL}BROWNIE DE CHOCOLATE BELGA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}BROWNIE DE CHOCOLATE BELGA_000.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 4,
@@ -572,12 +772,14 @@ const DATA = {
       longDescription: "Cremosos y refrescantes.",
       video: `${VIDEO_BASE_URL}HELADO.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}HELADO_015.jpg`,
+      allergens: ["mani"],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 5,
@@ -588,270 +790,142 @@ const DATA = {
       longDescription: "Refrescante y ligero.",
       video: `${VIDEO_BASE_URL}SORBETE.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}SORBETE_013.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
   ],
   bebidas: [
     {
       id: 1,
-      title: "Javier Sanz Verdejo 2023",
+      title: "Coctel Margarita Frozen",
       author: "bartender",
-      price: "Copa 5,50€ / Botella 26,00€",
-      description: "D.O. Rueda",
-      longDescription: "Vino blanco fresco y aromático.",
-      video: "",
+      price: "15,00€",
+      description: "Cocteles",
+      longDescription: "Cocteles",
+      video: `${VIDEO_BASE_URL}COCTEL MARGARITA FROZEN.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}COCTEL MARGARITA FROZEN_000.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 2,
-      title: "Terras do Cigarrón Blanco 2023",
+      title: "Coctel michelada",
       author: "bartender",
-      price: "Copa 4,00€ / Botella 22,00€",
-      description: "D.O. Monterrei",
-      longDescription: "Vino blanco suave y afrutado.",
-      video: "",
+      price: "15,00€",
+      description: "Cocteles",
+      longDescription: "Cocteles",
+      video: `${VIDEO_BASE_URL}COCTEL MICHELADA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}COCTEL MICHELADA_004.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 3,
-      title: "Artazuri Rosado 2023",
+      title: "Coctel mojito de fresa",
       author: "bartender",
-      price: "Copa 4,00€ / Botella 21,00€",
-      description: "D.O. Navarra",
-      longDescription: "Rosado fresco y ligero.",
-      video: "",
+      price: "15,00€",
+      description: "Cocteles",
+      longDescription: "Cocteles",
+      video: `${VIDEO_BASE_URL}COCTEL MOJITO DE FRESA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}COCTEL MOJITO DE FRESA_007.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 4,
-      title: "Dr Loosen dry blanco 2023",
+      title: "Coctel old fashioned",
       author: "bartender",
-      price: "Copa 4,50€ / Botella 24,00€",
-      description: "D.O. Mosel",
-      longDescription: "Vino blanco seco y elegante.",
-      video: "",
+      price: "15,00€",
+      description: "Cocteles",
+      longDescription: "Cocteles",
+      video: `${VIDEO_BASE_URL}COCTEL OLD FASHIONED.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}COCTEL OLD FASHIONED_021.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 5,
-      title: "Antidoto 2023",
+      title: "Coctel piña colada",
       author: "bartender",
-      price: "Copa 6,50€ / Botella 36,00€",
-      description: "D.O. Ribera del Duero",
-      longDescription: "Vino tinto con cuerpo y aroma complejo.",
-      video: "",
+      price: "15,00€",
+      description: "Cocteles",
+      longDescription: "Cocteles",
+      video: `${VIDEO_BASE_URL}COCTEL PIÑA COLADA.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}COCTEL PIÑA COLADA_014.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 6,
-      title: "El Jardín de La Emperatriz Tinto 2020",
+      title: "Coctel San Francisco",
       author: "bartender",
-      price: "Copa 4,00€ / Botella 22,00€",
-      description: "D.O. Rioja",
-      longDescription: "Tinto equilibrado y sabroso.",
-      video: "",
+      price: "15,00€",
+      description: "Cocteles",
+      longDescription: "Cocteles",
+      video: `${VIDEO_BASE_URL}COCTEL SAN FRANCISCO.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}COCTEL SAN FRANCISCO_000.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 7,
-      title: "Marqués de Murrieta Reserva 2019",
+      title: "Lover coctel",
       author: "bartender",
-      price: "Copa 7,50€ / Botella 44,00€",
-      description: "D.O. Rioja",
-      longDescription: "Un clásico Rioja reserva de gran elegancia.",
-      video: "",
+      price: "15,00€",
+      description: "Cocteles",
+      longDescription: "Cocteles",
+      video: `${VIDEO_BASE_URL}LOVER COCTEL.mp4`,
       isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
+      image: `${VIDEO_BASE_URL}LOVER COCTEL_000.jpg`,
+      allergens: [],
       ingredients:
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
-    },
-    {
-      id: 8,
-      title: "Heineken tercio",
-      author: "bartender",
-      price: "5,00€",
-      description: "",
-      longDescription: "",
-      video: "",
-      isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
-      ingredients:
-        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
-      nutritionalInfo:
-        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
-    },
-    {
-      id: 9,
-      title: "Heineken copa",
-      author: "bartender",
-      price: "4,50€",
-      description: "",
-      longDescription: "",
-      video: "",
-      isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
-      ingredients:
-        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
-      nutritionalInfo:
-        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
-    },
-    {
-      id: 10,
-      title: "Heineken 0.0",
-      author: "bartender",
-      price: "4,00€",
-      description: "",
-      longDescription: "",
-      video: "",
-      isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
-      ingredients:
-        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
-      nutritionalInfo:
-        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
-    },
-    {
-      id: 11,
-      title: "Refrescos",
-      author: "bartender",
-      price: "4,00€",
-      description: "",
-      longDescription: "",
-      video: "",
-      isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
-      ingredients:
-        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
-      nutritionalInfo:
-        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
-    },
-    {
-      id: 12,
-      title: "Agua",
-      author: "bartender",
-      price: "5,00€",
-      description: "",
-      longDescription: "",
-      video: "",
-      isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
-      ingredients:
-        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
-      nutritionalInfo:
-        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
-    },
-    {
-      id: 13,
-      title: "Agua con Gas",
-      author: "bartender",
-      price: "3,50€",
-      description: "",
-      longDescription: "",
-      video: "",
-      isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
-      ingredients:
-        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
-      nutritionalInfo:
-        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
-    },
-    {
-      id: 14,
-      title: "Zumos",
-      author: "bartender",
-      price: "4,00€",
-      description: "",
-      longDescription: "",
-      video: "",
-      isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
-      ingredients:
-        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
-      nutritionalInfo:
-        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
-    },
-    {
-      id: 15,
-      title: "Café",
-      author: "bartender",
-      price: "2,50€",
-      description: "",
-      longDescription: "",
-      video: "",
-      isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
-      ingredients:
-        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
-      nutritionalInfo:
-        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
-    },
-    {
-      id: 16,
-      title: "Copas",
-      author: "bartender",
-      price: "10,00€",
-      description: "",
-      longDescription: "",
-      video: "",
-      isChefSuggestion: true,
-      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f",
-      allergens: ["Gluten", "Dairy"],
-      ingredients:
-        "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
-      nutritionalInfo:
-        "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
   ],
 };
@@ -894,6 +968,8 @@ const DATA_DISCOTECA = {
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 2,
@@ -911,6 +987,8 @@ const DATA_DISCOTECA = {
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 3,
@@ -928,6 +1006,8 @@ const DATA_DISCOTECA = {
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 5,
@@ -945,6 +1025,8 @@ const DATA_DISCOTECA = {
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
     {
       id: 6,
@@ -962,6 +1044,8 @@ const DATA_DISCOTECA = {
         "Fresh tomatoes, garlic, extra virgin olive oil, fresh basil, baguette, salt, black pepper",
       nutritionalInfo:
         "Calories: 220kcal | Protein: 6g | Carbs: 24g | Fat: 12g",
+      isPrincipal: true,
+      isHighlight: true,
     },
   ],
 };
