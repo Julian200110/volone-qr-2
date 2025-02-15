@@ -168,11 +168,9 @@ const MenuItem = ({ post, postIndex }) => {
               >
                 Detalles
               </button>
-              <p className="text-[9px] font-bold underline mb-1">
-                Precio {post.price}
-              </p>
+              <p className="text-[9px] font-bold  mb-1">Precio {post.price}</p>
               <div className="justify-between text-center flex  ">
-                <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline ">
+                <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06]">
                   <img
                     src="/img/Icono.svg"
                     alt="Vector"

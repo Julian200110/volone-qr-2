@@ -166,13 +166,13 @@ const PostComponent = ({ post, activeSection }) => {
       <div
         className="absolute flex flex-col gap-4 z-30 justify-center right-0"
         style={{
-          bottom: "calc(var(--navbar-height) + 10px)", // Sube 10px
+          bottom: "calc(var(--navbar-height) + 40px)", // Sube 10px
           padding: "0 18px 18px 0",
         }}
       >
         {/* PRECIO */}
         <motion.p
-          className="text-base font-bold text-white border border-white rounded-[14px] p-2 flex flex-col w-[120px] h-[85px] items-center justify-center bg-[#A4A4A4]/22 backdrop-blur-md underline text-center"
+          className="text-base font-bold text-white border border-white rounded-[14px] p-2 flex flex-col w-[120px] h-[85px] items-center justify-center bg-[#A4A4A4]/22 backdrop-blur-md  text-center shadow-[-3px_4px_3px_rgba(0,0,0,0.3)]"
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -207,9 +207,9 @@ const PostComponent = ({ post, activeSection }) => {
       <div
         className="absolute bottom-0 flex z-10 pt-[10px] w-full"
         style={{
-          paddingBottom: "var(--navbar-height)",
+          paddingBottom: `calc(var(--navbar-height) + 30px)`,
           background:
-            "linear-gradient(180deg,#25150000 0%,#25150080 30%,#251500b3 60%,#251500cc 100%)",
+            "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.8) 100%)",
         }}
       >
         <section

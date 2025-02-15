@@ -176,7 +176,7 @@ const RestaurantLayout = () => {
         </div>
       </motion.nav>
       {/* Lista de productos */}
-      <main className="container mx-auto px-0 py-2 mb-8 mt-[50px]">
+      <main className="container mx-auto px-0 py-2 mb-8 mt-[50px] ">
         <div className="space-y-2">
           {SECTIONS.map((section, sectionIndex) => (
             <div key={section.id} className="pb-2">
@@ -190,6 +190,7 @@ const RestaurantLayout = () => {
           ))}
         </div>
       </main>
+
       <motion.nav
         initial={{ y: 100 }}
         animate={{ y: 0 }}
@@ -198,7 +199,7 @@ const RestaurantLayout = () => {
           stiffness: 300,
           damping: 30,
         }}
-        className="fixed bottom-0  w-full lg:w-[415px] px-4 py-2 z-50 overflow-hidden mx-auto  bg-black "
+        className="fixed bottom-0 w-full lg:w-[415px] px-4 py-2 z-50 overflow-hidden mx-auto h-[100px] bg-gradient-to-t from-black via-black/90 to-transparent flex flex-col justify-end"
       >
         {cartItems.length > 0 && (
           <span

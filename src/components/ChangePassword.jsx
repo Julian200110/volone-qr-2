@@ -1,140 +1,131 @@
-import React from "react";
+import React, { useState } from "react";
 import useStore from "../store/store";
-import { FaHeart, FaPlus, FaArrowLeft } from "react-icons/fa";
-import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { FaArrowLeft, FaThumbsUp } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { SECTIONS, translations } from "../data/constants";
+import LogOut from "./LogOut";
 
-const MenuItemDetail = () => {
+const ChangePassword = () => {
+  const [isModalLogOutOpen, setIsModalLogOutOpen] = useState(false);
+  const openModalLogOut = () => setIsModalLogOutOpen(true);
+  const closeModalLogOut = () => setIsModalLogOutOpen(false);
+  const { cartItems, updateQuantity } = useStore();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   const navigate = useNavigate();
-  const handleAddToCartAndGoCart = () => {
-    addToCart(selectedItem);
-    navigate("/cart");
-  };
-  const { selectedItem, setSelectedItem, cartItems, addToCart } = useStore();
+  const [discountApplied, setDiscountApplied] = useState(false);
+  const totalBeforeDiscount = cartItems.reduce((sum, item) => {
+    const price = parseFloat(item.price.replace("$", ""));
+    return sum + price * item.quantity;
+  }, 0);
 
+  const discount = discountApplied ? totalBeforeDiscount * 0.15 : 0;
+  const totalAfterDiscount = totalBeforeDiscount - discount;
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [showFullDetails, setShowFullDetails] = useState(false);
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      transition: { type: "spring", stiffness: 300, damping: 20 },
+    },
+    tap: { scale: 0.95 },
+  };
+  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
+  const [buttonsToShow, setButtonsToShow] = useState(5);
+  const [activeMode, setActiveMode] = useState("restaurante");
+  const currentSections =
+    activeMode === "restaurante" ? SECTIONS : SECTIONS_DISCOTECA;
+  const totalSections = currentSections.length;
+  const maxOffset =
+    totalSections - buttonsToShow >= 0 ? totalSections - buttonsToShow : 0;
+  const offset = Math.min(activeSectionIndex, maxOffset);
+  const visibleSections = currentSections.slice(offset, offset + buttonsToShow);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
+  const handleOpenPopup = (item) => {
+    setSelectedItem(item);
+    setIsPopupOpen(true);
+  };
+  const handleOpenModalLogOut = () => {
+    openModalLogOut(); // Abre el modal
+    setTimeout(() => {
+      closeModalLogOut(); // Cierra el modal después de 5 segundos
+    }, 3000);
+  };
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+  const handleOpenModal = (item) => {
+    setSelectedItem(item);
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedItem(null);
+  };
   const handleBack = () => {
-    navigate("/menu");
+    setShowFullDetails(false);
+    setSelectedItem(null);
   };
 
   return (
-    <div className="min-h-screen bg-black  w-full lg:w-[415px] mx-auto">
-      <div className="container mx-auto  ">
-        <div>
-          <div className="relative">
+    <div
+      className="min-h-screen bg-black to-black w-full lg:w-[415px] mx-auto
+  "
+    >
+      <header className=" top-0 z-10">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
             <button
-              onClick={handleBack}
-              className="absolute top-4 left-4 text-white hover:text-[#E50051] transition-colors duration-300 z-10"
+              onClick={() => navigate(-1)}
+              className="text-white hover:text-[#f5a00c] transition-colors duration-300"
             >
               <FaArrowLeft className="text-2xl" />
             </button>
-            <img
-              src={selectedItem.image}
-              alt={selectedItem.title}
-              className="w-full h-[250px] object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-100"></div>
-          </div>
-
-          <div className="p-8 bg-black">
-            <div className="flex justify-between items-start ">
-              <div>
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-[20px] font-semibold text-white mb-1">
-                      {selectedItem.title}
-                    </h3>
-                    {selectedItem.isChefSuggestion && (
-                      <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
-                        <img
-                          src="/img/Sugerencia.svg"
-                          alt="Vector"
-                          className="mr-2 w-4 h-4"
-                        />
-                        <p>SUGERENCIA DEL CHEF</p>{" "}
-                      </div>
-                    )}
-                    <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
-                      <img
-                        src="/img/Principal.svg"
-                        alt="Vector"
-                        className="mr-2 w-4 h-4"
-                      />
-                      <p>PRINCIPALES</p>{" "}
-                    </div>
-                    <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
-                      <img
-                        src="/img/Comensal.svg"
-                        alt="Vector"
-                        className="mr-2 w-4 h-4"
-                      />
-                      <p>PARA 5 COMENSALES</p>{" "}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="text-base font-bold text-white border border-white rounded-[14px] p-2 flex flex-col w-[97px] h-[62.3px] items-center justify-center bg-[#A4A4A4]/50 backdrop-blur-md  text-center">
-                <p className="text-sm">Precio</p>{" "}
-                {/* Tamaño más pequeño para "Precio" */}
-                <p className="text-[14px]">{selectedItem.price}</p>{" "}
-                {/* Tamaño más grande para el precio */}
-              </div>
-            </div>
-            <div className="border-b border-[#E50051]">
-              <p className="text-white text-[11px] text-justify mb-2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <div className="justify-start text-center flex items-center text-[9px] text-[#989898] mb-2">
-                <img
-                  src="/img/star.svg"
-                  alt="Vector"
-                  className="mr-2 w-4 h-4"
-                />
-                <p className="mr-2">2000 me gusta</p>
-                <img
-                  src="/img/shopping.svg"
-                  alt="Vector"
-                  className="mr-2 w-4 h-4"
-                />
-                <p>+1000 pedidos</p>{" "}
-              </div>
-            </div>
-            <div className=" mt-2 mb-5">
-              <p className="text-white text-[16px] text-justify mb-2 underline">
-                Alérgenos
-              </p>
-              <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] mb-2">
-                <div className="flex flex-col items-center mr-2">
-                  <img src="/img/Icono.svg" alt="Vector" className="w-5 h-5" />
-                  <p className="text-white text-[12px] ">Huevos</p>
-                </div>
-                <div className="flex flex-col items-center mr-2">
-                  <img src="/img/Icono.svg" alt="Vector" className="w-5 h-5" />
-                  <p className="text-white text-[12px] ">Pescado</p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <img src="/img/Icono.svg" alt="Vector" className="w-5 h-5" />
-                  <p className="text-white text-[12px] ">Lacteos</p>
-                </div>
-              </div>
-            </div>
-
-            <button
-              onClick={handleAddToCartAndGoCart}
-              className="w-[170px] h-[27px] bg-black border border-[#E50051]
-             hover:from-[#e59200] hover:to-[#E50051] text-white  
-             rounded-full transition-all duration-500 text-[11px] font-semibold 
-             shadow-lg hover:shadow-[#E50051]/20 transform hover:-translate-y-1 
-             block mx-auto underline"
-            >
-              Agregar al pedido
-            </button>
+            <h1 className="text-[16px] font-bold text-[#E50051] underline">
+              Cambiar Contraseña
+            </h1>
+            <div className="w-8" />
           </div>
         </div>
+      </header>
+      <div className="w-[278px] mx-auto mt-10 flex flex-col gap-[25px] text-[12px]">
+        <div className="border-b border-[#E50051]">
+          <input
+            type="text"
+            className="bg-black text-white  mb-2 w-[278px]  focus:outline-none focus:ring-0 placeholder-white"
+            placeholder="contraseña actual"
+          />
+        </div>
+        <div className="border-b border-[#E50051] ">
+          <input
+            type="text"
+            className="bg-black text-white  mb-2 w-[278px]  focus:outline-none focus:ring-0 placeholder-white"
+            placeholder="contraseña nueva"
+          />
+        </div>{" "}
+        <div className="border-b border-[#E50051]">
+          <input
+            type="text"
+            className="bg-black text-white  mb-2 w-[278px]  focus:outline-none focus:ring-0 placeholder-white"
+            placeholder="confirmar contraseña nueva"
+          />
+        </div>
       </div>
+      <button
+        onClick={() => setDiscountApplied(true)}
+        className="flex items-center justify-center bg-[#E50051]  w-[96px] 
+                                   text-white rounded-full transition-all duration-500
+                                   transform hover:-translate-y-1 font-semibold shadow-lg
+                                   hover:shadow-[#f5a00c]/20 space-x-2 h-[29px] mx-auto text-[12px] underline mt-10"
+      >
+        <span>Guardar</span>
+      </button>
       <motion.nav
         initial={{ y: 100 }}
         animate={{ y: 0 }}
@@ -145,15 +136,6 @@ const MenuItemDetail = () => {
         }}
         className="fixed bottom-0  w-full lg:w-[415px] px-4 py-2 z-50 overflow-hidden mx-auto  bg-black "
       >
-        {cartItems.length > 0 && (
-          <span
-            className="absolute right-[125px] bg-[#E50051]
-                                 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center 
-                                 transform group-hover:scale-110 transition-transform duration-300 z-10"
-          >
-            {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
-          </span>
-        )}
         <div className="relative flex items-center justify-center gap-20">
           {/* Enlaces de navegación */}
           <a className="text-white hover:text-[#E50051] flex items-center justify-center">
@@ -166,20 +148,17 @@ const MenuItemDetail = () => {
             >
               <path
                 d="M20.9219 0H5.07812C1.38531 0 0 1.43738 0 5.66713V21.0227C0 25.2524 1.38531 27 5.07812 27H20.9219C24.6147 27 26 25.2524 26 21.0227V5.66713C26 1.43738 24.6147 0 20.9219 0ZM23.9688 21.0227C23.9688 22.9491 22.6038 24.5126 20.9219 24.5126H19.8859C18.8866 21.26 16.1809 18.9287 13 18.9287C9.81906 18.9287 7.11344 21.26 6.11406 24.5126H5.07812C3.39625 24.5126 2.03125 22.9491 2.03125 21.0227V5.66713C2.03125 3.74071 3.39625 2.17723 5.07812 2.17723H20.9219C22.6038 2.17723 23.9688 3.74071 23.9688 5.66713V21.0227ZM18.4167 10.553C18.4167 13.638 15.6934 16.1368 13 16.1368C10.3066 16.1368 7.58333 13.638 7.58333 10.553C7.58333 7.46791 10.3066 4.96915 13 4.96915C15.6934 4.96915 18.4167 7.46791 18.4167 10.553Z"
-                fill="white"
+                fill="#E50051"
               />
             </svg>
           </a>
           <a
-            href="/slider"
+            href="/menu"
             className="text-white hover:text-[#E50051] flex items-center justify-center"
           >
             <img className="w-10 h-10" src="/img/Menu.svg" alt="Menú" />
           </a>
-          <a
-            onClick={() => navigate("/cart")}
-            className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer"
-          >
+          <a className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer">
             <svg
               width="27"
               height="28"
@@ -221,8 +200,9 @@ const MenuItemDetail = () => {
           </a>
         </div>
       </motion.nav>
+      <LogOut isOpen={isModalLogOutOpen} onClose={closeModalLogOut}></LogOut>
     </div>
   );
 };
 
-export default MenuItemDetail;
+export default ChangePassword;
