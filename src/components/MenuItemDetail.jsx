@@ -12,12 +12,12 @@ const MenuItemDetail = () => {
   const navigate = useNavigate();
   const handleAddToCartAndGoCart = () => {
     addToCart(selectedItem);
-    navigate("/cart");
+    navigate("/Carrito");
   };
   const { selectedItem, setSelectedItem, cartItems, addToCart } = useStore();
 
   const handleBack = () => {
-    navigate("/menu");
+    navigate("/Menu");
   };
 
   return (
@@ -175,13 +175,13 @@ const MenuItemDetail = () => {
             </svg>
           </a>
           <a
-            href="/slider"
+            href="/TikTokmenu"
             className="text-white hover:text-[#E50051] flex items-center justify-center"
           >
             <img className="w-10 h-10" src="/img/Menu.svg" alt="Menú" />
           </a>
           <a
-            onClick={() => navigate("/cart")}
+            onClick={() => navigate("/Carrito")}
             className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer"
           >
             <svg

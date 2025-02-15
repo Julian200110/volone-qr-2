@@ -162,7 +162,7 @@ const MenuItem = ({ post, postIndex }) => {
               <button
                 onClick={() => {
                   setSelectedItem(post);
-                  navigate("/details");
+                  navigate("/Detalles");
                 }}
                 className="text-[9px] font-bold underline mt-0 inline-block text-[#E50051]"
               >

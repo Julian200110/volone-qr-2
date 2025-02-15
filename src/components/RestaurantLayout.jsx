@@ -79,7 +79,7 @@ const RestaurantLayout = () => {
           <div className="flex items-center justify-between">
             <button
               className="text-white hover:text-[#f5a00c] transition-colors duration-300"
-              onClick={() => navigate("/slider")}
+              onClick={() => navigate("/TikTokmenu")}
             >
               <FaArrowLeft className="text-2xl" />
             </button>
@@ -89,7 +89,7 @@ const RestaurantLayout = () => {
             <div className="flex items-center space-x-4">
               <div className="relative">
                 <button
-                  onClick={() => navigate("/cart")}
+                  onClick={() => navigate("/Carrito" )}
                   className="relative group"
                 >
                   <FiShoppingCart className="text-2xl text-white group-hover:text-[#f5a00c] transition-colors duration-300" />
@@ -218,7 +218,7 @@ const RestaurantLayout = () => {
           {/* Enlaces de navegación */}
           <a
             className="text-white hover:text-[#E50051] flex items-center justify-center"
-            href="/profile"
+            href="/Perfil"
           >
             <svg
               width="26"
@@ -234,13 +234,13 @@ const RestaurantLayout = () => {
             </svg>
           </a>
           <a
-            href="/slider"
+            href="/TikTokmenu"
             className="text-white hover:text-[#E50051] flex items-center justify-center"
           >
             <img className="w-10 h-10" src="/img/Menu.svg" alt="Menú" />
           </a>
           <a
-            onClick={() => navigate("/cart")}
+            onClick={() => navigate("/Carrito")}
             className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer"
           >
             <svg

@@ -157,7 +157,7 @@ const ChangePassword = () => {
             </svg>
           </a>
           <a
-            href="/menu"
+            href="/Menu"
             className="text-white hover:text-[#E50051] flex items-center justify-center"
           >
             <img className="w-10 h-10" src="/img/Menu.svg" alt="Menú" />

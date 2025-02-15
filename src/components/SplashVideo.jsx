@@ -5,13 +5,13 @@ const SplashVideo = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/slider"); // Cambia a false después de 2 segundos
+      navigate("/TikTokmenu"); // Cambia a false después de 2 segundos
     }, 2000); // 2 segundos
 
     return () => clearTimeout(timer); // Limpia el temporizador al desmontar
   }, []); // Solo se ejecuta una vez al montar el componente
   const handleVideoEnd = () => {
-    navigate("/slider");
+    navigate("/TikTokmenu");
   };
   return (
     <div className="h-screen w-full lg:w-[415px] overflow-hidden bg-black text-white relative mx-auto">

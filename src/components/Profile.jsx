@@ -8,9 +8,9 @@ import LogOut from "./LogOut";
 
 import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
 const Profile = () => {
-      const [isModalInfoOpen, setIsModalInfoOpen] = useState(false);
-      const openModalInfo = () => setIsModalInfoOpen(true);
-      const closeModalInfo = () => setIsModalInfoOpen(false);
+  const [isModalInfoOpen, setIsModalInfoOpen] = useState(false);
+  const openModalInfo = () => setIsModalInfoOpen(true);
+  const closeModalInfo = () => setIsModalInfoOpen(false);
   const [isModalLogOutOpen, setIsModalLogOutOpen] = useState(false);
   const openModalLogOut = () => setIsModalLogOutOpen(true);
   const closeModalLogOut = () => setIsModalLogOutOpen(false);
@@ -105,7 +105,7 @@ const Profile = () => {
         </div>
         <div className="flex justify-between">
           <p>Mis restaurantes favoritos</p>
-          <button onClick={() => navigate("/FavoritesRestaurants")}>
+          <button onClick={() => navigate("/RestauranteFavorito")}>
             <img src="/img/Anterior.svg" class="img-fluid rounded-top" alt="" />
           </button>
         </div>
@@ -115,7 +115,7 @@ const Profile = () => {
         </div>
         <div className="flex justify-between">
           <p>Cambiar contraseña</p>
-          <button onClick={() => navigate("/ChangePassword")}>
+          <button onClick={() => navigate("/CambiarContraseña")}>
             <img src="/img/Anterior.svg" class="img-fluid rounded-top" alt="" />
           </button>
         </div>
@@ -162,14 +162,14 @@ const Profile = () => {
             </svg>
           </a>
           <a
-            href="/menu"
+            href="/Menu"
             className="text-white hover:text-[#E50051] flex items-center justify-center"
           >
             <img className="w-10 h-10" src="/img/Menu.svg" alt="Menú" />
           </a>
           <a
             className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer"
-            href="/cart"
+            href="/Carrito"
           >
             <svg
               width="27"

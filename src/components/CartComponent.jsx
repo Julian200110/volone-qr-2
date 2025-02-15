@@ -71,7 +71,7 @@ const CartComponent = () => {
   if (showFullDetails && selectedItem) {
     const handleAddToCartAndGoCart = () => {
       addToCart(selectedItem);
-      navigate("/cart");
+      navigate("/Carrito");
     };
     const maxOffset =
       totalSections - buttonsToShow >= 0 ? totalSections - buttonsToShow : 0;
@@ -470,7 +470,7 @@ const CartComponent = () => {
           {/* Enlaces de navegación */}
           <a
             className="text-white hover:text-[#E50051] flex items-center justify-center "
-            href="/profile"
+            href="/Perfil"
           >
             <svg
               width="26"
@@ -486,7 +486,7 @@ const CartComponent = () => {
             </svg>
           </a>
           <a
-            href="/menu"
+            href="/Menu"
             className="text-white hover:text-[#E50051] flex items-center justify-center"
           >
             <img className="w-10 h-10" src="/img/Menu.svg" alt="Menú" />

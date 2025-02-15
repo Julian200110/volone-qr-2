@@ -138,7 +138,7 @@ const PostComponent = ({ post, expandedPost, handleExpand, activeSection }) => {
         }}
       >
         <motion.button
-          onClick={() => navigate("/menu")}
+          onClick={() => navigate("/Menu")}
           className="w-11 h-11 backdrop-blur-sm bg-black/50 rounded-full
                                    hover:bg-amber-500 active:bg-amber-700 flex items-center justify-center"
           whileHover={buttonVariants.hover}

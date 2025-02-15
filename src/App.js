@@ -14,16 +14,16 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<SplashVideo />} />
-          <Route path="/slider" element={<HomePage />} />
-          <Route path="/menu" element={<RestaurantLayout />} />
-          <Route path="/cart" element={<CartComponent />} />
-          <Route path="/details" element={<MenuItemDetail />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/TikTokmenu" element={<HomePage />} />
+          <Route path="/Menu" element={<RestaurantLayout />} />
+          <Route path="/Carrito" element={<CartComponent />} />
+          <Route path="/Detalles" element={<MenuItemDetail />} />
+          <Route path="/Perfil" element={<Profile />} />
           <Route
-            path="/FavoritesRestaurants"
+            path="/RestauranteFavorito"
             element={<FavoritesRestaurants />}
           />
-          <Route path="/ChangePassword" element={<ChangePassword />} />
+          <Route path="/CambiarContraseña" element={<ChangePassword />} />
         </Routes>
       </div>
     </Router>

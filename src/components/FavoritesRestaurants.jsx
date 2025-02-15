@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SECTIONS, translations } from "../data/constants";
 import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
 const FavoritesRestaurants = () => {
-
   const VIDEO_BASE_URL = "https://pub-facf2d29b893404b813ea8cd9b2515e7.r2.dev/";
   const { updateQuantity } = useStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -105,7 +104,7 @@ const FavoritesRestaurants = () => {
   if (showFullDetails && selectedItem) {
     const handleAddToCartAndGoCart = () => {
       addToCart(selectedItem);
-      navigate("/cart");
+      navigate("/Carrito");
     };
     const maxOffset =
       totalSections - buttonsToShow >= 0 ? totalSections - buttonsToShow : 0;
@@ -433,7 +432,7 @@ const FavoritesRestaurants = () => {
             </svg>
           </a>
           <a
-            href="/menu"
+            href="/Menu"
             className="text-white hover:text-[#E50051] flex items-center justify-center"
           >
             <img className="w-10 h-10" src="/img/Menu.svg" alt="Menú" />
