@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useStore from "../store/store";
 import { FaHeart, FaPlus, FaArrowLeft } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -34,7 +34,7 @@ const MenuItemDetail = () => {
             <img
               src={selectedItem.image}
               alt={selectedItem.title}
-              className="w-full h-[250px] object-cover"
+              className="w-full h-[38vh] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-100"></div>
           </div>
@@ -116,12 +116,20 @@ const MenuItemDetail = () => {
                   <p className="text-white text-[12px] ">Huevos</p>
                 </div>
                 <div className="flex flex-col items-center mr-2">
-                  <img src="/img/Icono.svg" alt="Vector" className="w-5 h-5" />
-                  <p className="text-white text-[12px] ">Pescado</p>
+                  <img
+                    src="/img/Lacteos.svg"
+                    alt="Vector"
+                    className="w-5 h-5"
+                  />
+                  <p className="text-white text-[12px] ">Lacteos</p>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src="/img/Icono.svg" alt="Vector" className="w-5 h-5" />
-                  <p className="text-white text-[12px] ">Lacteos</p>
+                  <img
+                    src="/img/Pescado.svg"
+                    alt="Vector"
+                    className="w-5 h-5"
+                  />
+                  <p className="text-white text-[12px] ">Pescado</p>
                 </div>
               </div>
             </div>

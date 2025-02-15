@@ -69,7 +69,7 @@ const DATA = {
       author: "chef",
       price: "29,00€",
       description:
-        "Finas lonchas cortadas a mano, sabor y elegancia en cada bocado.",
+        "Finas lonchas cortadas a mano, sabor y elegancia en cada bocado Finas lonchas cortadas a mano, d.",
       longDescription:
         "Finas lonchas cortadas a mano, sabor y elegancia en cada bocado.",
       video: `${VIDEO_BASE_URL}JAMÓN IBERICO DE BELLOTA.mp4`,

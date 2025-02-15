@@ -164,15 +164,17 @@ const PostComponent = ({ post, activeSection }) => {
       {/* BOTONES DE ACCIÓN (FAVORITO, AÑADIR) */}
 
       <div
-        className="absolute flex flex-col gap-4 z-30 justify-center right-0"
+        className="absolute flex flex-col z-30 justify-center right-0 gap-2"
         style={{
-          bottom: "calc(var(--navbar-height) + 40px)", // Sube 10px
+          bottom: `calc(var(--navbar-height) ${
+            expandedPost ? " + 30px" : "+ 30px"
+          })`, // Sube 10px
           padding: "0 18px 18px 0",
         }}
       >
         {/* PRECIO */}
         <motion.p
-          className="text-base font-bold text-white border border-white rounded-[14px] p-2 flex flex-col w-[120px] h-[85px] items-center justify-center bg-[#A4A4A4]/22 backdrop-blur-md  text-center shadow-[-3px_4px_3px_rgba(0,0,0,0.3)]"
+          className="text-base font-bold text-white border border-white rounded-[14px] p-2 flex flex-col w-[97px] h-[63px] items-center justify-center bg-[#A4A4A4]/22 backdrop-blur-md  text-center shadow-[-3px_4px_3px_rgba(0,0,0,0.3)]"
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -182,6 +184,26 @@ const PostComponent = ({ post, activeSection }) => {
           <p className="text-[14px]">{post.price}</p>{" "}
           {/* Tamaño más grande para el precio */}
         </motion.p>
+
+        {expandedPost && (
+          <div className="flex justify-between">
+            <img
+              src="/img/Icono.svg"
+              alt="Alergenos"
+              className="h-[23px] w-[23px]"
+            />{" "}
+            <img
+              src="/img/Lacteos.svg"
+              alt="Alergenos"
+              className="h-[23px] w-[23px]"
+            />{" "}
+            <img
+              src="/img/Pescado.svg"
+              alt="Alergenos"
+              className="h-[23px] w-[23px]"
+            />{" "}
+          </div>
+        )}
       </div>
 
       {post.isHighlight && (
@@ -207,7 +229,9 @@ const PostComponent = ({ post, activeSection }) => {
       <div
         className="absolute bottom-0 flex z-10 pt-[10px] w-full"
         style={{
-          paddingBottom: `calc(var(--navbar-height) + 30px)`,
+          paddingBottom: `calc(var(--navbar-height) ${
+            expandedPost ? " + 30px" : ""
+          })`,
           background:
             "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.8) 100%)",
         }}

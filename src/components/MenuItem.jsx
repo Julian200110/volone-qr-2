@@ -177,11 +177,15 @@ const MenuItem = ({ post, postIndex }) => {
                     className="mr-2 w-5 h-5"
                   />
                   <img
-                    src="/img/Icono.svg"
+                    src="/img/Lacteos.svg"
                     alt="Vector"
                     className="mr-2 w-5 h-5"
                   />
-                  <img src="/img/Icono.svg" alt="Vector" className="w-5 h-5" />
+                  <img
+                    src="/img/Pescado.svg"
+                    alt="Vector"
+                    className="w-5 h-5"
+                  />
                 </div>
                 <div>
                   <button
