@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SECTIONS, translations } from "../data/constants";
 import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
 const FavoritesRestaurants = () => {
+
   const VIDEO_BASE_URL = "https://pub-facf2d29b893404b813ea8cd9b2515e7.r2.dev/";
   const { updateQuantity } = useStore();
   const [isModalOpen, setIsModalOpen] = useState(false);

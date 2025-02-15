@@ -4,7 +4,11 @@ import { FaHeart, FaPlus, FaArrowLeft } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
+import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
 const MenuItemDetail = () => {
+  const [isModalInfoOpen, setIsModalInfoOpen] = useState(false);
+  const openModalInfo = () => setIsModalInfoOpen(true);
+  const closeModalInfo = () => setIsModalInfoOpen(false);
   const navigate = useNavigate();
   const handleAddToCartAndGoCart = () => {
     addToCart(selectedItem);
@@ -221,6 +225,10 @@ const MenuItemDetail = () => {
           </a>
         </div>
       </motion.nav>
+      <ModalFavoritesRestaurants
+        isOpen={isModalInfoOpen}
+        onClose={closeModalInfo}
+      ></ModalFavoritesRestaurants>
     </div>
   );
 };
