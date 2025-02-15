@@ -167,7 +167,7 @@ const PostComponent = ({ post, activeSection }) => {
         className="absolute flex flex-col z-30 justify-center right-0 gap-2"
         style={{
           bottom: `calc(var(--navbar-height) ${
-            expandedPost ? " + 30px" : "+ 30px"
+            expandedPost ? " + 10px" : "+ 30px"
           })`, // Sube 10px
           padding: "0 18px 18px 0",
         }}
@@ -230,7 +230,7 @@ const PostComponent = ({ post, activeSection }) => {
         className="absolute bottom-0 flex z-10 pt-[10px] w-full"
         style={{
           paddingBottom: `calc(var(--navbar-height) ${
-            expandedPost ? " + 30px" : ""
+            expandedPost ? " + 15px" : "+ 10px"
           })`,
           background:
             "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.8) 100%)",
@@ -414,11 +414,12 @@ const PostComponent = ({ post, activeSection }) => {
                       : "Agregar a favoritos"
                   }
                 />
-                <p className="text-gray-200 font-Manrope text-[12px] w-[200px] flex flex-col">
-                  {expandedPost
-                    ? post.description
-                    : getFirst7Words(post.description)}
-
+                <div className="text-gray-200 font-Manrope text-[12px] w-[200px] flex flex-col ">
+                  <p className="leading-[15px]">
+                    {expandedPost
+                      ? post.description
+                      : getFirst7Words(post.description)}
+                  </p>
                   <motion.span
                     onClick={handleExpand}
                     className="text-white hover:text-[#E50051] cursor-pointer underline"
@@ -429,7 +430,12 @@ const PostComponent = ({ post, activeSection }) => {
                       ? translations[language].seeLess
                       : translations[language].seeMore}
                   </motion.span>
-                </p>
+                  {expandedPost && (
+                    <p className="text-[11px] text-[#FF9F06] underline">
+                      PARA 5 COMENSALES
+                    </p>
+                  )}
+                </div>
               </div>
 
               {/* EXTRA INFO, SI EXPANDIDO */}
