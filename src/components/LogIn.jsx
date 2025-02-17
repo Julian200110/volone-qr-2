@@ -7,7 +7,7 @@ import { SECTIONS, translations } from "../data/constants";
 import LogOut from "./LogOut";
 
 import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
-const ChangePassword = () => {
+const LogIn = () => {
   const [isModalInfoOpen, setIsModalInfoOpen] = useState(false);
   const openModalInfo = () => setIsModalInfoOpen(true);
   const closeModalInfo = () => setIsModalInfoOpen(false);
@@ -91,45 +91,46 @@ const ChangePassword = () => {
             >
               <FaArrowLeft className="text-2xl" />
             </button>
-            <h1 className="text-[16px] font-bold text-[#E50051] underline">
-              Cambiar Contraseña
-            </h1>
             <div className="w-8" />
           </div>
         </div>
       </header>
-      <div className="w-[278px] mx-auto mt-10 flex flex-col gap-[25px] text-[12px]">
+      <div className="w-[278px] mx-auto mt-[150px] flex flex-col gap-[25px] text-[12px]">
+        <img
+          src="/img/volone.svg"
+          alt="volone"
+          className="w-[109px] h-[28px] mx-auto"
+        />
         <div className="border-b border-[#E50051]">
           <input
             type="text"
             className="bg-black text-white  mb-2 w-[278px]  focus:outline-none focus:ring-0 placeholder-white"
-            placeholder="contraseña actual"
+            placeholder="correo"
           />
         </div>
         <div className="border-b border-[#E50051] ">
           <input
             type="text"
             className="bg-black text-white  mb-2 w-[278px]  focus:outline-none focus:ring-0 placeholder-white"
-            placeholder="contraseña nueva"
+            placeholder="contraseña"
           />
         </div>{" "}
-        <div className="border-b border-[#E50051]">
-          <input
-            type="text"
-            className="bg-black text-white  mb-2 w-[278px]  focus:outline-none focus:ring-0 placeholder-white"
-            placeholder="confirmar contraseña nueva"
-          />
-        </div>
       </div>
-      <button
-        onClick={() => setDiscountApplied(true)}
-        className="flex items-center justify-center bg-[#E50051]  w-[96px] 
-                                   text-white rounded-full transition-all duration-500
-                                   transform hover:-translate-y-1 font-semibold shadow-lg
-                                   hover:shadow-[#f5a00c]/20 space-x-2 h-[29px] mx-auto text-[12px] underline mt-10"
-      >
-        <span>Guardar</span>
-      </button>
+
+      <div className=" justify-center text-center flex items-center mb-3 gap-5  mt-10">
+        <button
+          className="text-center bg-[#E50051] border text-[12px] h-[29px] w-[96px] rounded-full border-[#E50051]"
+          onClick={() => navigate("/Perfil")}
+        >
+          Iniciar sesion
+        </button>
+        <button
+          className="text-center border text-[12px] h-[29px] w-[96px] rounded-full border-[#E50051]"
+          onClick={() => navigate("/SignUp")}
+        >
+          Registrarse
+        </button>
+      </div>
       <motion.nav
         initial={{ y: 100 }}
         animate={{ y: 0 }}
@@ -218,4 +219,4 @@ const ChangePassword = () => {
   );
 };
 
-export default ChangePassword;
+export default LogIn;

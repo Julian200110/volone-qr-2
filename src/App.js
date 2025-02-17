@@ -8,6 +8,8 @@ import MenuItemDetail from "./components/MenuItemDetail";
 import Profile from "./components/Profile";
 import FavoritesRestaurants from "./components/FavoritesRestaurants";
 import ChangePassword from "./components/ChangePassword";
+import LogIn from "./components/LogIn";
+import SignUp from "./components/SignUp";
 function App() {
   return (
     <Router>
@@ -19,6 +21,8 @@ function App() {
           <Route path="/Carrito" element={<CartComponent />} />
           <Route path="/Detalles" element={<MenuItemDetail />} />
           <Route path="/Perfil" element={<Profile />} />
+          <Route path="/LogIn" element={<LogIn />} />
+          <Route path="/SignUp" element={<SignUp />} />
           <Route
             path="/RestauranteFavorito"
             element={<FavoritesRestaurants />}

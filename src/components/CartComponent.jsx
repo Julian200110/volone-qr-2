@@ -470,7 +470,7 @@ const CartComponent = () => {
           {/* Enlaces de navegación */}
           <a
             className="text-white hover:text-[#E50051] flex items-center justify-center "
-            href="/Perfil"
+            href="/LogIn"
           >
             <svg
               width="26"
@@ -486,10 +486,10 @@ const CartComponent = () => {
             </svg>
           </a>
           <a
-            href="/Menu"
+            href="/TikTokmenu"
             className="text-white hover:text-[#E50051] flex items-center justify-center"
           >
-            <img className="w-10 h-10" src="/img/Menu.svg" alt="Menú" />
+            <img className="w-7 h-7" src="/img/menuvideo.svg" alt="Menú" />
           </a>
           <a className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer">
             <svg
