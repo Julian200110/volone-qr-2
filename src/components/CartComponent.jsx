@@ -225,7 +225,7 @@ const CartComponent = () => {
           <div className="flex items-center justify-between">
             <button
               onClick={() => navigate(-1)}
-              className="text-white hover:text-[#f5a00c] transition-colors duration-300"
+              className="text-white hover:text-[#E50051] transition-colors duration-300"
             >
               <FaArrowLeft className="text-2xl" />
             </button>
@@ -247,7 +247,7 @@ const CartComponent = () => {
               <div
                 key={`{${item.id} - ${item.title}`}
                 className={`bg-black overflow-hidden
-  hover:shadow-[#f5a00c]/20 transition-all duration-500
+  hover:shadow-[#E50051]/20 transition-all duration-500
   border border-gray-800/50 hover:border-[#E50051]
   backdrop-blur-sm group my-4 shadow-none 
   ${isDelete ? "translate-x-[-30%] transition-transform duration-500 " : ""}
@@ -398,10 +398,10 @@ const CartComponent = () => {
                           <button
                             ref={(el) => (buttonRefs.current[postIndex] = el)}
                             onClick={() => handleAddToCart(post, postIndex)}
-                            className="rounded-full bg-gradient-to-r from-[#f5a00c] to-[#e59200] 
-                                   hover:from-[#e59200] hover:to-[#f5a00c] text-white 
+                            className="rounded-full bg-gradient-to-r from-[#E50051] to-[#e59200] 
+                                   hover:from-[#e59200] hover:to-[#E50051] text-white 
                                    transition-all duration-500 transform hover:-translate-y-1 
-                                   shadow-lg hover:shadow-[#f5a00c]/20"
+                                   shadow-lg hover:shadow-[#E50051]/20"
                           >
                             <FaPlus className="text-[10px]" />
                           </button>
@@ -442,7 +442,7 @@ const CartComponent = () => {
               className="flex items-center justify-center bg-[#E50051]  w-[96px] 
                                    text-white rounded-full transition-all duration-500
                                    transform hover:-translate-y-1 font-semibold shadow-lg
-                                   hover:shadow-[#f5a00c]/20 space-x-2 h-[29px] mx-auto text-[12px]"
+                                   hover:shadow-[#E50051]/20 space-x-2 h-[29px] mx-auto text-[12px]"
               style={{
                 boxShadow:
                   "0px 4px 6px rgba(229, 0, 81, 0.3), 0px -4px 6px rgba(229, 0, 81, 0.3)",

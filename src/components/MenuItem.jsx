@@ -81,7 +81,7 @@ const MenuItem = ({ post, postIndex }) => {
       ref={containerRef}
       onClick={handleContainerClick}
       className="bg-black overflow-hidden 
-                          hover:shadow-[#f5a00c]/20 transition-all duration-500 
+                          hover:shadow-[#E50051]/20 transition-all duration-500 
                           border border-gray-800/50 hover:border-[#E50051] 
                           backdrop-blur-sm group my-4 shadow-none h-" // Usamos shadow-none para evitar que haya sombra predeterminada
       style={{
@@ -194,7 +194,7 @@ const MenuItem = ({ post, postIndex }) => {
                     className="p-1 rounded-full bg-black 
                                    hover:from-[#E50051] hover:to-[#E50051] text-white 
                                    transition-all duration-500 transform hover:-translate-y-1 
-                                   shadow-lg hover:shadow-[#f5a00c]/20 mr-3"
+                                   shadow-lg hover:shadow-[#E50051]/20 mr-3"
                   >
                     <svg
                       width="20"
@@ -269,10 +269,10 @@ const MenuItem = ({ post, postIndex }) => {
                           <button
                             ref={(el) => (buttonRefs.current[postIndex] = el)}
                             onClick={() => handleAddToCart(post, postIndex)}
-                            className="rounded-full bg-gradient-to-r from-[#f5a00c] to-[#e59200] 
-                                   hover:from-[#e59200] hover:to-[#f5a00c] text-white 
+                            className="rounded-full bg-gradient-to-r from-[#E50051] to-[#e59200] 
+                                   hover:from-[#e59200] hover:to-[#E50051] text-white 
                                    transition-all duration-500 transform hover:-translate-y-1 
-                                   shadow-lg hover:shadow-[#f5a00c]/20"
+                                   shadow-lg hover:shadow-[#E50051]/20"
                           >
                             <FaPlus className="text-[10px]" />
                           </button>

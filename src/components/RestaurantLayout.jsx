@@ -53,7 +53,7 @@ const RestaurantLayout = () => {
       {showRatePopup && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-gray-950/80 border border-gray-800/50 rounded-2xl p-8 shadow-2xl w-full max-w-md text-center">
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-[#f5a00c] to-[#e59200] bg-clip-text text-transparent mb-4">
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-[#E50051] to-[#e59200] bg-clip-text text-transparent mb-4">
               ¡Atención!
             </h2>
             <p className="text-gray-300 text-lg mb-6 leading-relaxed">
@@ -61,11 +61,11 @@ const RestaurantLayout = () => {
             </p>
             <button
               onClick={() => setShowRatePopup(false)}
-              className="bg-gradient-to-r from-[#f5a00c] to-[#e59200] 
-                         hover:from-[#e59200] hover:to-[#f5a00c] 
+              className="bg-gradient-to-r from-[#E50051] to-[#e59200] 
+                         hover:from-[#e59200] hover:to-[#E50051] 
                          text-white py-3 px-6 rounded-xl transition-all duration-500 
                          transform hover:-translate-y-1 font-semibold shadow-lg 
-                         hover:shadow-[#f5a00c]/20"
+                         hover:shadow-[#E50051]/20"
             >
               Calificar
             </button>
@@ -78,7 +78,7 @@ const RestaurantLayout = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <button
-              className="text-white hover:text-[#f5a00c] transition-colors duration-300"
+              className="text-white hover:text-[#E50051] transition-colors duration-300"
               onClick={() => navigate("/TikTokmenu")}
             >
               <FaArrowLeft className="text-2xl" />
@@ -92,10 +92,10 @@ const RestaurantLayout = () => {
                   onClick={() => navigate("/Carrito" )}
                   className="relative group"
                 >
-                  <FiShoppingCart className="text-2xl text-white group-hover:text-[#f5a00c] transition-colors duration-300" />
+                  <FiShoppingCart className="text-2xl text-white group-hover:text-[#E50051] transition-colors duration-300" />
                   {cartItems.length > 0 && (
                     <span
-                      className="absolute -top-2 -right-2 bg-gradient-to-r from-[#f5a00c] to-[#e59200] 
+                      className="absolute -top-2 -right-2 bg-gradient-to-r from-[#E50051] to-[#e59200] 
                                  text-white text-xs rounded-full h-5 w-5 flex items-center justify-center 
                                  transform group-hover:scale-110 transition-transform duration-300"
                     >
@@ -109,9 +109,9 @@ const RestaurantLayout = () => {
                 onChange={(e) => setLanguage(e.target.value)}
                 className="appearance-none bg-gray-800/50 text-white py-2 px-4 rounded-lg 
                            cursor-pointer border border-gray-700/50 
-                           hover:border-[#f5a00c] transition-all duration-300 
+                           hover:border-[#E50051] transition-all duration-300 
                            backdrop-blur-sm focus:outline-none 
-                           focus:ring-2 focus:ring-[#f5a00c]/50"
+                           focus:ring-2 focus:ring-[#E50051]/50"
               >
                 <option value="en">EN</option>
                 <option value="es">ES</option>

@@ -87,7 +87,7 @@ const ChangePassword = () => {
           <div className="flex items-center justify-between">
             <button
               onClick={() => navigate(-1)}
-              className="text-white hover:text-[#f5a00c] transition-colors duration-300"
+              className="text-white hover:text-[#E50051] transition-colors duration-300"
             >
               <FaArrowLeft className="text-2xl" />
             </button>
@@ -126,7 +126,7 @@ const ChangePassword = () => {
         className="flex items-center justify-center bg-[#E50051]  w-[96px] 
                                    text-white rounded-full transition-all duration-500
                                    transform hover:-translate-y-1 font-semibold shadow-lg
-                                   hover:shadow-[#f5a00c]/20 space-x-2 h-[29px] mx-auto text-[12px] underline mt-10"
+                                   hover:shadow-[#E50051]/20 space-x-2 h-[29px] mx-auto text-[12px] underline mt-10"
       >
         <span>Guardar</span>
       </button>

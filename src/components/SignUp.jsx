@@ -87,7 +87,7 @@ const SignUp = () => {
           <div className="flex items-center justify-between">
             <button
               onClick={() => navigate(-1)}
-              className="text-white hover:text-[#f5a00c] transition-colors duration-300"
+              className="text-white hover:text-[#E50051] transition-colors duration-300"
             >
               <FaArrowLeft className="text-2xl" />
             </button>
