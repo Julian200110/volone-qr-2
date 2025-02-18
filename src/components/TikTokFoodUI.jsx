@@ -270,7 +270,7 @@ const TikTokFoodUI = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="absolute top-[70px] text-white text-[26px] underline inset-x-0 text-center"
+                className="absolute top-[70px] text-white text-[26px] font-mangoli underline inset-x-0 text-center"
               >
                 {currentSections[activeSectionIndex]?.label || "Menu"}
               </motion.div>

@@ -3,6 +3,7 @@ import useInView from "../hooks/useInView";
 import useStore from "../store/store";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { Icon } from "@iconify/react/dist/iconify.js";
 let globalPlayingVideoRef = null;
 
 const MenuItem = ({ post, postIndex }) => {
@@ -139,11 +140,11 @@ const MenuItem = ({ post, postIndex }) => {
         <div className="p-2  md:w-2/3">
           <div className="flex justify-between items-start">
             <div>
-              <h3 className="text-[14px] font-semibold text-white mb-1">
+              <h3 className="text-[14px] font-mangoli text-white mb-1">
                 {post.title}
               </h3>
               {post.isChefSuggestion && (
-                <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
+                <div className="justify-start text-center flex items-center text-[9px] font-mangoli   text-[#FF9F06] underline mb-2">
                   <img
                     src="/img/Sugerencia.svg"
                     alt="Vector"
@@ -156,7 +157,7 @@ const MenuItem = ({ post, postIndex }) => {
           </div>
           <div className="flex justify-between items-start ">
             <div>
-              <p className="text-[10px] text-gray-300 mb-0 leading-none">
+              <p className="text-[10px] font-manrope font-extralight text-white mb-2 leading-none">
                 {post.description}
               </p>
               <button
@@ -164,11 +165,14 @@ const MenuItem = ({ post, postIndex }) => {
                   setSelectedItem(post);
                   navigate("/Detalles");
                 }}
-                className="text-[9px] font-bold underline mt-0 inline-block text-[#E50051]"
+                className="text-[9px] flex items-center font-manrope font-extrabold  mt-0 inline-block text-[white]"
               >
                 Detalles
+                <Icon icon="mdi:chevron-right" className="text-[11px]" />
               </button>
-              <p className="text-[9px] font-bold  mb-1">Precio {post.price}</p>
+              <p className="text-[9px] font-mangoli text-[#E50051] mb-1">
+                Precio {post.price}
+              </p>
               <div className="justify-between text-center flex  ">
                 <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06]">
                   <img

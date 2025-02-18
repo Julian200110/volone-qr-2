@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
 :root {
   --navbar-height: 65px;
@@ -9,6 +10,14 @@
   --max-width-restaurantLogo: 60%;
   zoom: 0;
 }
+body {
+  overflow: hidden;
+}
+
 * {
   user-select: none;
+}
+@font-face {
+  font-family: "mangoli";
+  src: url("/public/fonts/Mangoli.ttf");
 }

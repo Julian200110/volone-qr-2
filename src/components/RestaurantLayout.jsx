@@ -39,6 +39,9 @@ const RestaurantLayout = () => {
     totalSections - buttonsToShow >= 0 ? totalSections - buttonsToShow : 0;
   const offset = Math.min(activeSectionIndex, maxOffset);
   const visibleSections = currentSections.slice(offset, offset + buttonsToShow);
+  const handleScroll = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   /***************************************************
    * Sección de Detalles
@@ -48,7 +51,7 @@ const RestaurantLayout = () => {
    * Sección Principal
    ***************************************************/
   return (
-    <div className="min-h-screen w-full lg:w-[415px] bg-black relative mx-auto">
+    <div className="min-h-screen w-full lg:w-[415px] bg-black relative mx-auto h-[800px] overflow-y-auto">
       {/* MODAL / POP-UP renovado */}
       {showRatePopup && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
@@ -123,24 +126,31 @@ const RestaurantLayout = () => {
       </header> */}
       <motion.nav
         className="fixed top-0 backdrop-blur-md bg-black/60
-                         px-4 py-2 z-50 w-full lg:w-[415px] "
+                         px-4 py-2 z-50 w-full lg:w-[415px] rounded-b-[13px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)]"
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
+        {/* Mostrar label de la sección actual */}
+
         <div className="max-w-screen-xl mx-auto flex items-center justify-center relative">
           {/* Flecha IZQUIERDA */}
-          {offset > 0 && (
-            <motion.button
-              className="absolute left-0 p-2 focus:outline-none
+
+          {/* <motion.button
+            onClick={() => {
+              if (activeSectionIndex > 0) {
+                const newIndex = activeSectionIndex - 1;
+                setActiveSectionIndex(newIndex);
+              }
+            }}
+            className="absolute left-0 p-2 focus:outline-none
                                rounded-lg text-gray-300 hover:text-white"
-              whileHover={buttonVariants.hover}
-              whileTap={buttonVariants.tap}
-              aria-label="Flecha izquierda"
-            >
-              <Icon icon="mdi:chevron-left" className="text-3xl" />
-            </motion.button>
-          )}
+            whileHover={buttonVariants.hover}
+            whileTap={buttonVariants.tap}
+            aria-label="Flecha izquierda"
+          >
+            <Icon icon="mdi:chevron-left" className="text-3xl" />
+          </motion.button> */}
 
           {/* Iconos (centrados) */}
           <div className="flex items-center justify-center gap-4 w-4/5">
@@ -150,6 +160,10 @@ const RestaurantLayout = () => {
               return (
                 <motion.button
                   key={section.id}
+                  onClick={() => {
+                    setActiveSectionIndex(realIndex);
+                    handleScroll(section.id);
+                  }}
                   className={`flex flex-col items-center p-2 focus:outline-none rounded-lg w-1/5 ${
                     activeSectionIndex === realIndex
                       ? "text-[#E50051]"
@@ -166,25 +180,33 @@ const RestaurantLayout = () => {
           </div>
 
           {/* Flecha DERECHA */}
-          {offset + buttonsToShow < totalSections && (
-            <motion.button
-              className="absolute right-0 p-2 focus:outline-none
+
+          {/* <motion.button
+            onClick={() => {
+              if (activeSectionIndex < totalSections - 1) {
+                const newIndex = activeSectionIndex + 1;
+                setActiveSectionIndex(newIndex);
+              }
+            }}
+            className="absolute right-0 p-2 focus:outline-none
                                rounded-lg text-gray-300 hover:text-white"
-              whileHover={buttonVariants.hover}
-              whileTap={buttonVariants.tap}
-              aria-label="Flecha derecha"
-            >
-              <Icon icon="mdi:chevron-right" className="text-3xl" />
-            </motion.button>
-          )}
+            whileHover={buttonVariants.hover}
+            whileTap={buttonVariants.tap}
+            aria-label="Flecha derecha"
+          >
+            <Icon icon="mdi:chevron-right" className="text-3xl" />
+          </motion.button> */}
         </div>
       </motion.nav>
       {/* Lista de productos */}
       <main className="container mx-auto px-0 py-2 mb-8 mt-[50px] ">
-        <div className="space-y-2">
+        <div className="space-y-2 ">
           {SECTIONS.map((section, sectionIndex) => (
-            <div key={section.id} className="pb-2">
-              <p className="text-[25px] font-bold mt-3 text-center underline ">
+            <div key={section.id} className="pb-1">
+              <p
+                id={section.id}
+                className="text-[24px] font-mangoli mt-3 text-center underline "
+              >
                 {section.label}
               </p>
               {section.posts.map((post, postIndex) => (

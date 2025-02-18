@@ -253,7 +253,7 @@ const FavoritesRestaurants = () => {
       className="min-h-screen bg-black to-black w-full lg:w-[415px] mx-auto
   "
     >
-      <header className=" top-0 z-10">
+      <header className=" top-0 z-10 font-mangoli">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <button
@@ -262,14 +262,14 @@ const FavoritesRestaurants = () => {
             >
               <FaArrowLeft className="text-2xl" />
             </button>
-            <h1 className="text-[16px] font-bold text-[#E50051] underline">
+            <h1 className="text-[16px]  text-[#E50051] underline">
               Restaurantes favoritos
             </h1>
             <div className="w-8" />
           </div>
         </div>
       </header>
-      <div>
+      <div className="font-manrope">
         {cartItems.length === 0 ? (
           <p className="text-gray-400 text-center animate-pulse">
             El carrito está vacío

@@ -21,11 +21,11 @@ const ModalFavoritesRestaurants = ({
         >
           &times;
         </button>
-        <header className="flex text-[#E50051] items-center text-[16px] underline gap-1 justify-center">
+        <header className="flex text-[#E50051] items-center text-[16px] font-mangoli underline gap-1 justify-center">
           <img src="img/Info2.svg" alt="Info" className="h-[19px] w-[19px]" />
           <p>Información</p>
         </header>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 font-manrope font-bold ">
           <img
             src="img/restaurante.svg"
             alt="Info"
@@ -34,7 +34,7 @@ const ModalFavoritesRestaurants = ({
           <p>Restaurante name</p>
         </div>
         <div className="flex flex-col gap-3">
-          <div className="flex items-center gap-2 text-[9px]">
+          <div className="flex items-center gap-2 text-[9px] font-manrope">
             <img
               src="img/ubicacion.svg"
               alt="Info"
@@ -53,8 +53,10 @@ const ModalFavoritesRestaurants = ({
                 className="h-[16px] w-[16px]"
               />
               <div>
-                <p className="text-[10px] text-[#E50051]">Llamar</p>
-                <p className="text-[9px]">2549 988 859 </p>
+                <p className="text-[10px] text-[#E50051] font-mangoli">
+                  Llamar
+                </p>
+                <p className="text-[9px] font-manrope">2549 988 859 </p>
               </div>
             </div>
           </div>
@@ -63,8 +65,10 @@ const ModalFavoritesRestaurants = ({
             <div className="flex items-center gap-2 text-[9px]">
               <img src="img/wpp.svg" alt="Info" className="h-[16px] w-[16px]" />
               <div>
-                <p className="text-[10px] text-[#E50051]">WhatsApp</p>
-                <p className="text-[9px]">2549 988 859 </p>
+                <p className="text-[10px] text-[#E50051] font-mangoli">
+                  WhatsApp
+                </p>
+                <p className="text-[9px] font.manrope">2549 988 859 </p>
               </div>
             </div>
           </div>
@@ -77,8 +81,12 @@ const ModalFavoritesRestaurants = ({
                 className="h-[16px] w-[16px]"
               />
               <div>
-                <p className="text-[10px] text-[#E50051]">Escribir</p>
-                <p className="text-[9px] underline">Lorem Ipsum@gmail.com </p>
+                <p className="text-[10px] text-[#E50051] font-mangoli">
+                  Escribir
+                </p>
+                <p className="text-[9px] underline font-manrope">
+                  Lorem Ipsum@gmail.com{" "}
+                </p>
               </div>
             </div>
           </div>
@@ -91,8 +99,12 @@ const ModalFavoritesRestaurants = ({
                 className="h-[16px] w-[16px]"
               />
               <div>
-                <p className="text-[10px] text-[#E50051]">ver pagina web</p>
-                <p className="text-[9px] underline">www.loremIpsum.com.es</p>
+                <p className="text-[10px] text-[#E50051] font-mangoli">
+                  ver pagina web
+                </p>
+                <p className="text-[9px] underline font-manrope">
+                  www.loremIpsum.com.es
+                </p>
               </div>
             </div>
           </div>
@@ -104,8 +116,10 @@ const ModalFavoritesRestaurants = ({
                 className="h-[16px] w-[16px]"
               />
               <div>
-                <p className="text-[10px] text-[#E50051]">Horarios</p>
-                <p className="text-[9px]">
+                <p className="text-[10px] text-[#E50051] font-mangoli">
+                  Horarios
+                </p>
+                <p className="text-[9px] font-manrope">
                   Lunes a Viernes 08:00hrs a 13:00hrs
                 </p>
               </div>

@@ -44,11 +44,11 @@ const MenuItemDetail = () => {
               <div>
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="text-[20px] font-semibold text-white mb-1">
+                    <h3 className="text-[20px] font-mangoli text-white mb-1">
                       {selectedItem.title}
                     </h3>
                     {selectedItem.isChefSuggestion && (
-                      <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
+                      <div className="justify-start text-center font-mangoli flex items-center text-[9px] text-[#FF9F06] underline mb-2">
                         <img
                           src="/img/Sugerencia.svg"
                           alt="Vector"
@@ -57,7 +57,7 @@ const MenuItemDetail = () => {
                         <p>SUGERENCIA DEL CHEF</p>{" "}
                       </div>
                     )}
-                    <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
+                    <div className="justify-start text-center font-mangoli flex items-center text-[9px] text-[#FF9F06] underline mb-2">
                       <img
                         src="/img/Principal.svg"
                         alt="Vector"
@@ -65,7 +65,7 @@ const MenuItemDetail = () => {
                       />
                       <p>PRINCIPALES</p>{" "}
                     </div>
-                    <div className="justify-start text-center flex items-center text-[9px] text-[#FF9F06] underline mb-2">
+                    <div className="justify-start text-center font-mangoli flex items-center text-[9px] text-[#FF9F06] underline mb-2">
                       <img
                         src="/img/Comensal.svg"
                         alt="Vector"
@@ -77,7 +77,7 @@ const MenuItemDetail = () => {
                 </div>
               </div>
 
-              <div className="text-base font-bold text-white border border-white rounded-[14px] p-2 flex flex-col w-[97px] h-[62.3px] items-center justify-center bg-[#A4A4A4]/50 backdrop-blur-md  text-center">
+              <div className="text-base font-mangoli text-white border border-white rounded-[14px] p-2 flex flex-col w-[97px] h-[62.3px] items-center justify-center bg-[#A4A4A4]/50 backdrop-blur-md  text-center">
                 <p className="text-sm">Precio</p>{" "}
                 {/* Tamaño más pequeño para "Precio" */}
                 <p className="text-[14px]">{selectedItem.price}</p>{" "}
@@ -85,13 +85,13 @@ const MenuItemDetail = () => {
               </div>
             </div>
             <div className="border-b border-[#E50051]">
-              <p className="text-white text-[11px] text-justify mb-2">
+              <p className="text-white text-[11px] text-justify font-manrope font-extralight  mb-2">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat.
               </p>
-              <div className="justify-start text-center flex items-center text-[9px] text-[#989898] mb-2">
+              <div className="justify-start text-center font-manrope font-extralight flex items-center text-[9px] text-[#989898] mb-2">
                 <img
                   src="/img/star.svg"
                   alt="Vector"
@@ -106,7 +106,7 @@ const MenuItemDetail = () => {
                 <p>+1000 pedidos</p>{" "}
               </div>
             </div>
-            <div className=" mt-2 mb-5">
+            <div className=" mt-2 mb-5 font-mangoli">
               <p className="text-white text-[16px] text-justify mb-2 underline">
                 Alérgenos
               </p>
@@ -138,7 +138,7 @@ const MenuItemDetail = () => {
               onClick={handleAddToCartAndGoCart}
               className="w-[170px] h-[27px] bg-black border border-[#E50051]
              hover:from-[#e59200] hover:to-[#E50051] text-white  
-             rounded-full transition-all duration-500 text-[11px] font-semibold 
+             rounded-full transition-all duration-500 text-[11px] font-mangoli 
              shadow-lg hover:shadow-[#E50051]/20 transform hover:-translate-y-1 
              block mx-auto underline"
             >

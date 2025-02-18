@@ -174,7 +174,7 @@ const PostComponent = ({ post, activeSection }) => {
       >
         {/* PRECIO */}
         <motion.p
-          className="text-base font-bold text-white border border-white rounded-[14px] p-2 flex flex-col w-[97px] h-[63px] items-center justify-center bg-[#A4A4A4]/22 backdrop-blur-md  text-center shadow-[-3px_4px_3px_rgba(0,0,0,0.3)]"
+          className="text-base font-mangoli text-white border border-white rounded-[14px] p-2 flex flex-col w-[97px] h-[63px] items-center justify-center bg-[#A4A4A4]/22 backdrop-blur-md  text-center shadow-[-3px_4px_3px_rgba(0,0,0,0.3)]"
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -215,12 +215,12 @@ const PostComponent = ({ post, activeSection }) => {
         >
           {/* DESTACADO*/}
           <motion.p
-            className="text-base font-bold text-black  p-2 flex  w-[156px] h-[36px] items-center justify-center bg-[#FF9F06] backdrop-blur-md text-center rounded-l-full flex items-center underline"
+            className="text-base font-bold text-black  p-2 flex  w-[136px] h-[36px] items-center justify-center bg-[#FF9F06] backdrop-blur-md text-center rounded-l-full flex items-center underline"
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <p className="text-md">Destacado</p>{" "}
+            <p className="text-[16px]  font-manrope font-bold">Destacado</p>{" "}
             <img src="/img/Vector.svg" alt="Vector" className="ml-2 w-4 h-4" />
           </motion.p>
         </div>
@@ -247,7 +247,7 @@ const PostComponent = ({ post, activeSection }) => {
           {/* DESTACADO*/}
           {post.isPrincipal && (
             <motion.p
-              className="text-base font-bold text-[#FF9F06]  p-2 flex  w-[150px] h-[25px] items-center justify-start bg-[#0000]/70 backdrop-blur-md text-center rounded-r-full flex items-center underline relative left-0"
+              className="text-base text-[#FF9F06]  p-2 flex  w-[150px] h-[25px] items-center justify-start bg-[#0000]/70 backdrop-blur-md text-center rounded-r-full flex items-center underline relative left-0"
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -261,12 +261,12 @@ const PostComponent = ({ post, activeSection }) => {
                 alt="Vector"
                 className="mr-2 w-4 h-4"
               />
-              <p className="text-[12px]">Principales</p>{" "}
+              <p className="text-[10px] font-mangoli">PRINCIPALES</p>{" "}
             </motion.p>
           )}
           {post.isChefSuggestion && (
             <motion.p
-              className="text-base font-bold text-[#FF9F06]  p-2 flex  w-[166px] h-[25px] items-center justify-start bg-[#0000]/70 backdrop-blur-md text-center rounded-r-full flex items-center underline relative left-0"
+              className="text-base text-[#FF9F06]  p-2 flex  w-[166px] h-[25px] items-center justify-start bg-[#0000]/70 backdrop-blur-md text-center rounded-r-full flex items-center underline relative left-0"
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -280,12 +280,12 @@ const PostComponent = ({ post, activeSection }) => {
                 alt="Vector"
                 className="mr-2 w-4 h-4"
               />
-              <p className="text-[12px]">Sugerencia del chef</p>{" "}
+              <p className="text-[10px] font-mangoli">SUGERENCIA DEL CHEF</p>{" "}
             </motion.p>
           )}
           <div className="text-white max-w-full w-[90%] h-full">
             <motion.p
-              className="text-lg font-bold mt-2 gap-2 flex items-start w-[250px] "
+              className="text-[19px] mt-2 gap-2 flex items-start w-[250px] font-mangoli "
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -355,7 +355,7 @@ const PostComponent = ({ post, activeSection }) => {
 
             {/* DESCRIPCIÓN */}
             <motion.div
-              className="flex flex-col text-base space-between "
+              className="flex flex-col text-base space-between font-manrope font-extralight font-extralight text-[11px]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -414,7 +414,7 @@ const PostComponent = ({ post, activeSection }) => {
                       : "Agregar a favoritos"
                   }
                 />
-                <div className="text-gray-200 font-Manrope text-[12px] w-[200px] flex flex-col ">
+                <div className="text-white font-manrope font-extralight text-[12px] w-[200px] flex flex-col ">
                   <p className="leading-[15px]">
                     {expandedPost
                       ? post.description

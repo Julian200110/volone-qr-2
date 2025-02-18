@@ -79,7 +79,7 @@ const Profile = () => {
 
   return (
     <div
-      className="min-h-screen bg-black to-black w-full lg:w-[415px] mx-auto
+      className="min-h-screen bg-black to-black w-full lg:w-[415px] mx-auto font-mangoli
   "
     >
       <header className=" top-0 z-10">
@@ -91,7 +91,7 @@ const Profile = () => {
             >
               <FaArrowLeft className="text-2xl" />
             </button>
-            <h1 className="text-[16px] font-bold text-[#E50051] underline">
+            <h1 className="text-[16px]  text-[#E50051] underline">
               Nombre y Apellido
             </h1>
             <div className="w-8" />
@@ -130,8 +130,8 @@ const Profile = () => {
         onClick={() => setDiscountApplied(true)}
         className="flex items-center justify-center bg-[#E50051]  w-[96px] 
                                    text-white rounded-full transition-all duration-500
-                                   transform hover:-translate-y-1 font-semibold shadow-lg
-                                   hover:shadow-[#E50051]/20 space-x-2 h-[29px] mx-auto text-[12px] underline mt-20"
+                                   transform hover:-translate-y-1  shadow-lg
+                                   hover:shadow-[#E50051]/20 space-x-2 h-[29px] mx-auto text-[12px]  mt-20"
       >
         <span>Cancelar</span>
       </button>

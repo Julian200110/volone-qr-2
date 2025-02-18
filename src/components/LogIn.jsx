@@ -79,7 +79,7 @@ const LogIn = () => {
 
   return (
     <div
-      className="min-h-screen bg-black to-black w-full lg:w-[415px] mx-auto
+      className="min-h-screen bg-black to-black w-full lg:w-[415px] mx-auto font-mangoli
   "
     >
       <header className=" top-0 z-10">

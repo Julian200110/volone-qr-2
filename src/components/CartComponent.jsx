@@ -229,7 +229,7 @@ const CartComponent = () => {
             >
               <FaArrowLeft className="text-2xl" />
             </button>
-            <h1 className="text-[16px] font-bold text-[#E50051] underline">
+            <h1 className="text-[16px] font-mangoli text-[#E50051] underline">
               Mi Pedido
             </h1>
             <div className="w-8" />
@@ -238,8 +238,8 @@ const CartComponent = () => {
       </header>
       <div>
         {cartItems.length === 0 ? (
-          <p className="text-gray-400 text-center animate-pulse">
-            El carrito está vacío
+          <p className="text-white font-manrope text-center animate-pulse text-[12px]">
+            No tienes pedidos actualmente
           </p>
         ) : (
           <div className="space-y-4">
