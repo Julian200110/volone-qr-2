@@ -15,6 +15,9 @@ const buttonVariants = {
   },
   tap: { scale: 0.95 },
 };
+const isSafariMobile =
+  /^((?!chrome|android).)*safari/i.test(navigator.userAgent) &&
+  /iPhone|iPad|iPod/.test(navigator.userAgent);
 
 const PostComponent = ({ post, activeSection }) => {
   const [expandedPost, setExpandedPost] = useState(false);
@@ -167,7 +170,13 @@ const PostComponent = ({ post, activeSection }) => {
         className="absolute flex flex-col z-30 justify-center right-0 gap-2"
         style={{
           bottom: `calc(var(--navbar-height) ${
-            expandedPost ? " + 10px" : "+ 30px"
+            expandedPost
+              ? isSafariMobile
+                ? "+ 90px"
+                : "+ 20px"
+              : isSafariMobile
+              ? "+ 80px"
+              : "- 10px"
           })`, // Sube 10px
           padding: "0 18px 18px 0",
         }}
@@ -230,7 +239,13 @@ const PostComponent = ({ post, activeSection }) => {
         className="absolute bottom-0 flex z-10 pt-[10px] w-full"
         style={{
           paddingBottom: `calc(var(--navbar-height) ${
-            expandedPost ? " + 15px" : "+ 10px"
+            expandedPost
+              ? isSafariMobile
+                ? "+ 90px"
+                : "+ 15px"
+              : isSafariMobile
+              ? "+ 60px"
+              : "- 30px"
           })`,
           background:
             "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.8) 100%)",

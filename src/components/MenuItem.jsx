@@ -84,7 +84,7 @@ const MenuItem = ({ post, postIndex }) => {
       className="bg-black overflow-hidden 
                           hover:shadow-[#E50051]/20 transition-all duration-500 
                           border border-gray-800/50 hover:border-[#E50051] 
-                          backdrop-blur-sm group my-4 shadow-none h-" // Usamos shadow-none para evitar que haya sombra predeterminada
+                          backdrop-blur-sm group my-4 shadow-none " // Usamos shadow-none para evitar que haya sombra predeterminada
       style={{
         boxShadow:
           "0px 4px 6px rgba(229, 0, 81, 0.3), 0px -4px 6px rgba(229, 0, 81, 0.3)",
@@ -132,7 +132,6 @@ const MenuItem = ({ post, postIndex }) => {
 
           <div
             className="absolute inset-0 bg-gradient-to-r from-transparent to-black opacity-100"
-            onMouseEnter={handleContainerClick}
             onMouseLeave={handleMouseLeave}
           ></div>
         </div>

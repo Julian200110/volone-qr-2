@@ -197,7 +197,7 @@ const TikTokFoodUI = () => {
   }, []); // Solo se ejecuta una vez al montar el componente
   return (
     <>
-      <div className="h-screen w-full lg:w-[415px] overflow-hidden bg-black text-white relative mx-auto">
+      <div className="h-[100dvh] w-full lg:w-[415px] overflow-hidden bg-black text-white relative mx-auto">
         {/* SWIPER HORIZONTAL (SECCIONES) */}
         <Swiper
           className="w-full h-full"
@@ -256,7 +256,7 @@ const TikTokFoodUI = () => {
         {/* NAVEGACIÓN INFERIOR (ICONOS) */}
         <motion.nav
           className="fixed top-0 backdrop-blur-md bg-black/60
-                         px-4 py-2 z-50 w-full lg:w-[415px] rounded-b-[13px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)]"
+                         px-4 py-2 z-50 w-full lg:w-[415px] rounded-b-[13px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] "
           initial={{ y: 100 }}
           animate={{ y: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
