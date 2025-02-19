@@ -6,18 +6,19 @@ import { useNavigate } from "react-router-dom";
 
 import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
 const MenuItemDetail = () => {
+  const { idMenu } = useStore();
   const [isModalInfoOpen, setIsModalInfoOpen] = useState(false);
   const openModalInfo = () => setIsModalInfoOpen(true);
   const closeModalInfo = () => setIsModalInfoOpen(false);
   const navigate = useNavigate();
   const handleAddToCartAndGoCart = () => {
     addToCart(selectedItem);
-    navigate("/Carrito");
+    navigate("/carrito");
   };
   const { selectedItem, setSelectedItem, cartItems, addToCart } = useStore();
 
   const handleBack = () => {
-    navigate("/Menu");
+    navigate("/carta");
   };
 
   return (
@@ -182,14 +183,14 @@ const MenuItemDetail = () => {
               />
             </svg>
           </a>
+          <img
+            className="w-[27px] h-[27px] cursor-pointer"
+            src="/img/menuvideo.svg"
+            alt="Menú"
+            onClick={() => navigate("/cartainteractivo/" + idMenu)}
+          />
           <a
-            href="/TikTokmenu"
-            className="text-white hover:text-[#E50051] flex items-center justify-center"
-          >
-            <img className="w-10 h-10" src="/img/Menu.svg" alt="Menú" />
-          </a>
-          <a
-            onClick={() => navigate("/Carrito")}
+            onClick={() => navigate("/carrito")}
             className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer"
           >
             <svg

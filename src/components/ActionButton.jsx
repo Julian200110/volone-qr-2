@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import useStore from "../store/store";
 const ActionButton = ({ active, onClick, Icon, label, buttonRef }) => {
+  const { idMenu } = useStore();
   const buttonVariants = {
     hover: {
       scale: 1.05,

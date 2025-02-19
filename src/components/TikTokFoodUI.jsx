@@ -257,9 +257,9 @@ const TikTokFoodUI = () => {
         <motion.nav
           className="fixed top-0 backdrop-blur-md bg-black/60
                          px-4 py-2 z-50 w-full lg:w-[415px] rounded-b-[13px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] "
-          initial={{ y: 100 }}
-          animate={{ y: 0 }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          // initial={{ y: 100 }}
+          // animate={{ y: 0 }}
+          // transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
           {/* Mostrar label de la sección actual */}
 
@@ -361,7 +361,7 @@ const TikTokFoodUI = () => {
             {/* Enlaces de navegación */}
             <a
               className="text-white hover:text-[#E50051] flex items-center justify-center"
-              href="/LogIn"
+              href="/iniciarsesion"
             >
               <svg
                 width="26"
@@ -376,15 +376,16 @@ const TikTokFoodUI = () => {
                 />
               </svg>
             </a>
-            <a
-              href="/Menu"
-              className="text-white hover:text-[#E50051] flex items-center justify-center"
-            >
-              <img className="w-7 h-7" src="/img/menunormal.svg" alt="Menú" />
-            </a>
+
+            <img
+              className="w-[27px] h-[27px] cursor-pointer"
+              src="/img/menunormal.svg"
+              alt="Menú"
+              onClick={() => navigate("/carta")}
+            />
 
             <a
-              onClick={() => navigate("/Carrito")}
+              onClick={() => navigate("/carrito")}
               className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer relative"
             >
               {cartItems.length > 0 && (
@@ -421,6 +422,7 @@ const TikTokFoodUI = () => {
                 />
               </svg>
             </a>
+
             <button
               className="text-white hover:text-[#E50051] flex items-center justify-center"
               onClick={() => {

@@ -1,11 +1,16 @@
 import { create } from "zustand";
 
+function generarIdRandom() {
+  return btoa(Math.random().toString(36).substring(2, 15))
+    .replace(/[^a-zA-Z0-9]/g, "")
+    .substring(0, 20);
+}
 const useStore = create((set) => ({
   cartItems: [],
   favorites: [],
   language: "es",
   selectedItem: null,
-
+  idMenu: generarIdRandom(),
   addToCart: (item) =>
     set((state) => {
       const existingItem = state.cartItems.find((i) => i.title === item.title);

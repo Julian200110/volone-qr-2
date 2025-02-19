@@ -8,6 +8,7 @@ import Modal from "./Modal";
 
 import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
 const CartComponent = () => {
+  const { idMenu } = useStore();
   const [isModalInfoOpen, setIsModalInfoOpen] = useState(false);
   const openModalInfo = () => setIsModalInfoOpen(true);
   const closeModalInfo = () => setIsModalInfoOpen(false);
@@ -71,7 +72,7 @@ const CartComponent = () => {
   if (showFullDetails && selectedItem) {
     const handleAddToCartAndGoCart = () => {
       addToCart(selectedItem);
-      navigate("/Carrito");
+      navigate("/carrito");
     };
     const maxOffset =
       totalSections - buttonsToShow >= 0 ? totalSections - buttonsToShow : 0;
@@ -470,7 +471,7 @@ const CartComponent = () => {
           {/* Enlaces de navegación */}
           <a
             className="text-white hover:text-[#E50051] flex items-center justify-center "
-            href="/LogIn"
+            href="/iniciarsesion"
           >
             <svg
               width="26"
@@ -485,12 +486,12 @@ const CartComponent = () => {
               />
             </svg>
           </a>
-          <a
-            href="/TikTokmenu"
-            className="text-white hover:text-[#E50051] flex items-center justify-center"
-          >
-            <img className="w-7 h-7" src="/img/menuvideo.svg" alt="Menú" />
-          </a>
+          <img
+            className="w-[27px] h-[27px] cursor-pointer"
+            src="/img/menuvideo.svg"
+            alt="Menú"
+            onClick={() => navigate("/cartainteractivo/" + idMenu)}
+          />
           <a className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer">
             <svg
               width="27"

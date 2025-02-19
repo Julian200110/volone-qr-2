@@ -7,6 +7,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 let globalPlayingVideoRef = null;
 
 const MenuItem = ({ post, postIndex }) => {
+  const { idMenu } = useStore();
   const navigate = useNavigate();
   const videoRef = useRef(null);
   const containerRef = useRef(null);
@@ -98,7 +99,7 @@ const MenuItem = ({ post, postIndex }) => {
       }}
     >
       <div className="flex">
-        <div className="relative group w-[250px] h-[160px] overflow-hidden">
+        <div className="relative group w-[250px] h-auto overflow-hidden">
           <img
             src={post.image}
             alt={post.title}
@@ -169,7 +170,7 @@ const MenuItem = ({ post, postIndex }) => {
               <button
                 onClick={() => {
                   setSelectedItem(post);
-                  navigate("/Detalles");
+                  navigate("/detalles");
                 }}
                 className="text-[9px] flex items-center font-manrope font-extrabold  mt-0 inline-block text-[white]"
               >

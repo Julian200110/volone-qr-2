@@ -14,7 +14,7 @@ const RestaurantLayout = () => {
   const openModalInfo = () => setIsModalInfoOpen(true);
   const closeModalInfo = () => setIsModalInfoOpen(false);
   const navigate = useNavigate();
-
+  const { idMenu } = useStore();
   const { cartItems } = useStore();
 
   const [showRatePopup, setShowRatePopup] = useState(false);
@@ -82,7 +82,7 @@ const RestaurantLayout = () => {
           <div className="flex items-center justify-between">
             <button
               className="text-white hover:text-[#E50051] transition-colors duration-300"
-              onClick={() => navigate("/TikTokmenu")}
+              onClick={() => navigate("/cartainteractivo")}
             >
               <FaArrowLeft className="text-2xl" />
             </button>
@@ -92,7 +92,7 @@ const RestaurantLayout = () => {
             <div className="flex items-center space-x-4">
               <div className="relative">
                 <button
-                  onClick={() => navigate("/Carrito" )}
+                  onClick={() => navigate("/carrito" )}
                   className="relative group"
                 >
                   <FiShoppingCart className="text-2xl text-white group-hover:text-[#E50051] transition-colors duration-300" />
@@ -231,7 +231,7 @@ const RestaurantLayout = () => {
           {/* Enlaces de navegación */}
           <a
             className="text-white hover:text-[#E50051] flex items-center justify-center"
-            href="/LogIn"
+            href="/iniciarsesion"
           >
             <svg
               width="26"
@@ -246,14 +246,14 @@ const RestaurantLayout = () => {
               />
             </svg>
           </a>
+          <img
+            className="w-[27px] h-[27px] cursor-pointer"
+            src="/img/menuvideo.svg"
+            alt="Menú"
+            onClick={() => navigate("/cartainteractivo/" + idMenu)}
+          />
           <a
-            href="/TikTokmenu"
-            className="text-white hover:text-[#E50051] flex items-center justify-center"
-          >
-            <img className="w-7 h-7" src="/img/menuvideo.svg" alt="Menú" />
-          </a>
-          <a
-            onClick={() => navigate("/Carrito")}
+            onClick={() => navigate("/carrito")}
             className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer relative"
           >
             {cartItems.length > 0 && (

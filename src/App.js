@@ -16,18 +16,18 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<SplashVideo />} />
-          <Route path="/TikTokmenu" element={<HomePage />} />
-          <Route path="/Menu" element={<RestaurantLayout />} />
-          <Route path="/Carrito" element={<CartComponent />} />
-          <Route path="/Detalles" element={<MenuItemDetail />} />
-          <Route path="/Perfil" element={<Profile />} />
-          <Route path="/LogIn" element={<LogIn />} />
-          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/cartainteractivo/:id" element={<HomePage />} />
+          <Route path="/carta" element={<RestaurantLayout />} />
+          <Route path="/carrito" element={<CartComponent />} />
+          <Route path="/detalles" element={<MenuItemDetail />} />
+          <Route path="/perfil" element={<Profile />} />
+          <Route path="/iniciarsesion" element={<LogIn />} />
+          <Route path="/registrarse" element={<SignUp />} />
           <Route
-            path="/RestauranteFavorito"
+            path="/restaurantefavorito"
             element={<FavoritesRestaurants />}
           />
-          <Route path="/CambiarContraseña" element={<ChangePassword />} />
+          <Route path="/cambiarcontraseña" element={<ChangePassword />} />
         </Routes>
       </div>
     </Router>

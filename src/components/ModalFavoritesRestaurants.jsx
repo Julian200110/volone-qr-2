@@ -22,12 +22,12 @@ const ModalFavoritesRestaurants = ({
           &times;
         </button>
         <header className="flex text-[#E50051] items-center text-[16px] font-mangoli underline gap-1 justify-center">
-          <img src="img/Info2.svg" alt="Info" className="h-[19px] w-[19px]" />
+          <img src="/img/Info2.svg" alt="Info" className="h-[19px] w-[19px]" />
           <p>Información</p>
         </header>
         <div className="flex items-center gap-2 font-manrope font-bold ">
           <img
-            src="img/restaurante.svg"
+            src="/img/restaurante.svg"
             alt="Info"
             className="h-[34px] w-[34px] rounded-full"
           />
@@ -36,7 +36,7 @@ const ModalFavoritesRestaurants = ({
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2 text-[9px] font-manrope">
             <img
-              src="img/ubicacion.svg"
+              src="/img/ubicacion.svg"
               alt="Info"
               className="h-[15px] w-[15px]"
             />
@@ -48,7 +48,7 @@ const ModalFavoritesRestaurants = ({
           <div>
             <div className="flex items-center gap-2 ">
               <img
-                src="img/llamar.svg"
+                src="/img/llamar.svg"
                 alt="Info"
                 className="h-[16px] w-[16px]"
               />
@@ -63,7 +63,7 @@ const ModalFavoritesRestaurants = ({
           <div>
             {" "}
             <div className="flex items-center gap-2 text-[9px]">
-              <img src="img/wpp.svg" alt="Info" className="h-[16px] w-[16px]" />
+              <img src="/img/wpp.svg" alt="Info" className="h-[16px] w-[16px]" />
               <div>
                 <p className="text-[10px] text-[#E50051] font-mangoli">
                   WhatsApp
@@ -76,7 +76,7 @@ const ModalFavoritesRestaurants = ({
             {" "}
             <div className="flex items-center gap-2 text-[9px]">
               <img
-                src="img/correo.svg"
+                src="/img/correo.svg"
                 alt="Info"
                 className="h-[16px] w-[16px]"
               />
@@ -94,7 +94,7 @@ const ModalFavoritesRestaurants = ({
             {" "}
             <div className="flex items-center gap-2 text-[9px]">
               <img
-                src="img/pagina.svg"
+                src="/img/pagina.svg"
                 alt="Info"
                 className="h-[16px] w-[16px]"
               />
@@ -111,7 +111,7 @@ const ModalFavoritesRestaurants = ({
           <div>
             <div className="flex items-center gap-2 text-[9px]">
               <img
-                src="img/horarios.svg"
+                src="/img/horarios.svg"
                 alt="Info"
                 className="h-[16px] w-[16px]"
               />
@@ -128,19 +128,19 @@ const ModalFavoritesRestaurants = ({
         </div>
         <div className="flex gap-2 justify-center">
           <img
-            src="img/instagram.svg"
+            src="/img/instagram.svg"
             alt="Info"
             className="h-[20px] w-[20px]"
           />
           <img
-            src="img/facebook.svg"
+            src="/img/facebook.svg"
             alt="Info"
             className="h-[20px] w-[20px]"
           />
-          <img src="img/ubi.svg" alt="Info" className="h-[20px] w-[20px]" />
-          <img src="img/twitter.svg" alt="Info" className="h-[20px] w-[20px]" />
-          <img src="img/tiktok.svg" alt="Info" className="h-[20px] w-[20px]" />
-          <img src="img/youtube.svg" alt="Info" className="h-[20px] w-[20px]" />
+          <img src="/img/ubi.svg" alt="Info" className="h-[20px] w-[20px]" />
+          <img src="/img/twitter.svg" alt="Info" className="h-[20px] w-[20px]" />
+          <img src="/img/tiktok.svg" alt="Info" className="h-[20px] w-[20px]" />
+          <img src="/img/youtube.svg" alt="Info" className="h-[20px] w-[20px]" />
         </div>
         <img
           src="/img/Footer.svg" // Aquí pon la ruta de tu imagen adicional

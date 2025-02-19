@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import VariationComplements from "./VariationComplements";
+
 const LogOut = ({ isOpen, onClose, selectedItem, children }) => {
   if (!isOpen) return null;
   const [text, setText] = useState("");

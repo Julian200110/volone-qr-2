@@ -14,7 +14,7 @@ const ChangePassword = () => {
   const [isModalLogOutOpen, setIsModalLogOutOpen] = useState(false);
   const openModalLogOut = () => setIsModalLogOutOpen(true);
   const closeModalLogOut = () => setIsModalLogOutOpen(false);
-  const { cartItems, updateQuantity } = useStore();
+  const { cartItems, idMenu, updateQuantity } = useStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
@@ -156,12 +156,12 @@ const ChangePassword = () => {
               />
             </svg>
           </a>
-          <a
-            href="/TikTokMenu"
-            className="text-white hover:text-[#E50051] flex items-center justify-center"
-          >
-            <img className="w-7 h-7" src="/img/menuvideo.svg" alt="Menú" />
-          </a>
+          <img
+            className="w-[27px] h-[27px] cursor-pointer"
+            src="/img/menuvideo.svg"
+            alt="Menú"
+            onClick={() => navigate("/cartainteractivo/" + idMenu)}
+          />
           <a className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer">
             <svg
               width="27"

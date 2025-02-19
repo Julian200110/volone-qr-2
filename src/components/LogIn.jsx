@@ -8,6 +8,7 @@ import LogOut from "./LogOut";
 
 import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
 const LogIn = () => {
+  const { idMenu } = useStore();
   const [isModalInfoOpen, setIsModalInfoOpen] = useState(false);
   const openModalInfo = () => setIsModalInfoOpen(true);
   const closeModalInfo = () => setIsModalInfoOpen(false);
@@ -120,13 +121,13 @@ const LogIn = () => {
       <div className=" justify-center text-center flex items-center mb-3 gap-5  mt-10">
         <button
           className="text-center bg-[#E50051] border text-[12px] h-[29px] w-[96px] rounded-full border-[#E50051]"
-          onClick={() => navigate("/Perfil")}
+          onClick={() => navigate("/perfil")}
         >
           Iniciar sesion
         </button>
         <button
           className="text-center border text-[12px] h-[29px] w-[96px] rounded-full border-[#E50051]"
-          onClick={() => navigate("/SignUp")}
+          onClick={() => navigate("/registrarse")}
         >
           Registrarse
         </button>
@@ -157,12 +158,12 @@ const LogIn = () => {
               />
             </svg>
           </a>
-          <a
-            href="/TikTokMenu"
-            className="text-white hover:text-[#E50051] flex items-center justify-center"
-          >
-            <img className="w-7 h-7" src="/img/menuvideo.svg" alt="Menú" />
-          </a>
+          <img
+            className="w-[27px] h-[27px] cursor-pointer"
+            src="/img/menuvideo.svg"
+            alt="Menú"
+            onClick={() => navigate("/cartainteractivo/" + idMenu)}
+          />
           <a className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer">
             <svg
               width="27"

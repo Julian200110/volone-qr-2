@@ -8,6 +8,7 @@ import LogOut from "./LogOut";
 
 import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
 const Profile = () => {
+  const { idMenu } = useStore();
   const [isModalInfoOpen, setIsModalInfoOpen] = useState(false);
   const openModalInfo = () => setIsModalInfoOpen(true);
   const closeModalInfo = () => setIsModalInfoOpen(false);
@@ -105,7 +106,7 @@ const Profile = () => {
         </div>
         <div className="flex justify-between">
           <p>Mis restaurantes favoritos</p>
-          <button onClick={() => navigate("/RestauranteFavorito")}>
+          <button onClick={() => navigate("/restaurantefavorito")}>
             <img src="/img/Anterior.svg" class="img-fluid rounded-top" alt="" />
           </button>
         </div>
@@ -115,7 +116,7 @@ const Profile = () => {
         </div>
         <div className="flex justify-between">
           <p>Cambiar contraseña</p>
-          <button onClick={() => navigate("/CambiarContraseña")}>
+          <button onClick={() => navigate("/cambiarcontraseña")}>
             <img src="/img/Anterior.svg" class="img-fluid rounded-top" alt="" />
           </button>
         </div>
@@ -161,15 +162,15 @@ const Profile = () => {
               />
             </svg>
           </a>
-          <a
-            href="/TikTokMenu"
-            className="text-white hover:text-[#E50051] flex items-center justify-center"
-          >
-            <img className="w-7 h-7" src="/img/menuvideo.svg" alt="Menú" />
-          </a>
+          <img
+            className="w-[27px] h-[27px] cursor-pointer"
+            src="/img/menuvideo.svg"
+            alt="Menú"
+            onClick={() => navigate("/cartainteractivo/" + idMenu)}
+          />
           <a
             className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer"
-            href="/Carrito"
+            href="/carrito"
           >
             <svg
               width="27"

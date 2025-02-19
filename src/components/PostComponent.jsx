@@ -129,9 +129,9 @@ const PostComponent = ({ post, activeSection }) => {
               muted
               playsInline
               preload="auto"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              // initial={{ opacity: 0 }}
+              // animate={{ opacity: 1 }}
+              // transition={{ duration: 0.5 }}
               onPlaying={() => setIsPlaying(true)}
             />
           )}
@@ -154,10 +154,10 @@ const PostComponent = ({ post, activeSection }) => {
             <motion.div
               className="absolute inset-0 bg-black/50 pointer-events-none"
               style={{ zIndex: 10 }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              // initial={{ opacity: 0 }}
+              // animate={{ opacity: 0.5 }}
+              // exit={{ opacity: 0 }}
+              // transition={{ duration: 0.3 }}
             />
           )}
         </AnimatePresence>
@@ -184,9 +184,9 @@ const PostComponent = ({ post, activeSection }) => {
         {/* PRECIO */}
         <motion.p
           className="text-base font-mangoli text-white border border-white rounded-[14px] p-2 flex flex-col w-[97px] h-[63px] items-center justify-center bg-[#A4A4A4]/22 backdrop-blur-md  text-center shadow-[-3px_4px_3px_rgba(0,0,0,0.3)]"
-          initial={{ x: -20, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.3 }}
+          // initial={{ x: -20, opacity: 0 }}
+          // animate={{ x: 0, opacity: 1 }}
+          // transition={{ delay: 0.3 }}
         >
           <p className="text-sm">Precio</p>{" "}
           {/* Tamaño más pequeño para "Precio" */}
@@ -225,9 +225,9 @@ const PostComponent = ({ post, activeSection }) => {
           {/* DESTACADO*/}
           <motion.p
             className="text-base font-bold text-black  p-2 flex  w-[136px] h-[36px] items-center justify-center bg-[#FF9F06] backdrop-blur-md text-center rounded-l-full flex items-center underline"
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            // initial={{ x: -20, opacity: 0 }}
+            // animate={{ x: 0, opacity: 1 }}
+            // transition={{ delay: 0.3 }}
           >
             <p className="text-[16px]  font-manrope font-bold">Destacado</p>{" "}
             <img src="/img/Vector.svg" alt="Vector" className="ml-2 w-4 h-4" />
@@ -263,9 +263,9 @@ const PostComponent = ({ post, activeSection }) => {
           {post.isPrincipal && (
             <motion.p
               className="text-base text-[#FF9F06]  p-2 flex  w-[150px] h-[25px] items-center justify-start bg-[#0000]/70 backdrop-blur-md text-center rounded-r-full flex items-center underline relative left-0"
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
+              // initial={{ x: -20, opacity: 0 }}
+              // animate={{ x: 0, opacity: 1 }}
+              // transition={{ delay: 0.3 }}
               style={{
                 bottom: "20px",
                 left: "-20px",
@@ -282,9 +282,9 @@ const PostComponent = ({ post, activeSection }) => {
           {post.isChefSuggestion && (
             <motion.p
               className="text-base text-[#FF9F06]  p-2 flex  w-[166px] h-[25px] items-center justify-start bg-[#0000]/70 backdrop-blur-md text-center rounded-r-full flex items-center underline relative left-0"
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
+              // initial={{ x: -20, opacity: 0 }}
+              // animate={{ x: 0, opacity: 1 }}
+              // transition={{ delay: 0.3 }}
               style={{
                 bottom: "10px",
                 left: "-20px",
@@ -301,9 +301,9 @@ const PostComponent = ({ post, activeSection }) => {
           <div className="text-white max-w-full w-[90%] h-full">
             <motion.p
               className="text-[19px] mt-2 gap-2 flex items-start w-[250px] font-mangoli "
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
+              // initial={{ x: -20, opacity: 0 }}
+              // animate={{ x: 0, opacity: 1 }}
+              // transition={{ delay: 0.2 }}
             >
               {/* <ActionButton
                 post={post}
@@ -363,18 +363,13 @@ const PostComponent = ({ post, activeSection }) => {
             </motion.p>
             <motion.div
               className="flex items-center gap-4"
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
+              // initial={{ x: -20, opacity: 0 }}
+              // animate={{ x: 0, opacity: 1 }}
+              // transition={{ delay: 0.3 }}
             ></motion.div>
 
             {/* DESCRIPCIÓN */}
-            <motion.div
-              className="flex flex-col text-base space-between font-manrope font-extralight font-extralight text-[11px]"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
+            <motion.div className="flex flex-col text-base space-between font-manrope font-extralight font-extralight text-[11px]">
               <div className="flex items-start gap-2  w-[500px]">
                 {" "}
                 {/* Contenedor flex para alinear el botón y el título */}

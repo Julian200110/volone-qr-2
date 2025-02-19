@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SECTIONS, translations } from "../data/constants";
 import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
 const FavoritesRestaurants = () => {
+  const { idMenu } = useStore();
   const VIDEO_BASE_URL = "https://pub-facf2d29b893404b813ea8cd9b2515e7.r2.dev/";
   const { updateQuantity } = useStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -104,7 +105,7 @@ const FavoritesRestaurants = () => {
   if (showFullDetails && selectedItem) {
     const handleAddToCartAndGoCart = () => {
       addToCart(selectedItem);
-      navigate("/Carrito");
+      navigate("/carrito");
     };
     const maxOffset =
       totalSections - buttonsToShow >= 0 ? totalSections - buttonsToShow : 0;
@@ -431,12 +432,12 @@ const FavoritesRestaurants = () => {
               />
             </svg>
           </a>
-          <a
-            href="/TikTokMenu"
-            className="text-white hover:text-[#E50051] flex items-center justify-center"
-          >
-            <img className="w-7 h-7" src="/img/menuvideo.svg" alt="Menú" />
-          </a>
+          <img
+            className="w-[27px] h-[27px] cursor-pointer"
+            src="/img/menuvideo.svg"
+            alt="Menú"
+            onClick={() => navigate("/cartainteractivo/" + idMenu)}
+          />
           <a className="text-white hover:text-[#E50051] flex items-center justify-center cursor-pointer">
             <svg
               width="27"
