@@ -89,16 +89,16 @@ const PostComponent = ({ post, activeSection }) => {
   const isInView = useInView(containerRef, { threshold: 0 });
   const shouldPlay = useInView(videoRef, { threshold: 0.85 });
 
-  useEffect(() => {
-    if (videoRef.current) {
-      if (shouldPlay) {
-        videoRef.current.play().catch((err) => console.log("Play error:", err));
-      } else {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      }
-    }
-  }, [shouldPlay]);
+  // useEffect(() => {
+  //   if (videoRef.current) {
+  //     if (shouldPlay) {
+  //       videoRef.current.play().catch((err) => console.log("Play error:", err));
+  //     } else {
+  //       videoRef.current.pause();
+  //       setIsPlaying(false);
+  //     }
+  //   }
+  // }, [shouldPlay]);
   return (
     <motion.div
       key={`${activeSection}-${post.id}`}
@@ -172,10 +172,10 @@ const PostComponent = ({ post, activeSection }) => {
           bottom: `calc(var(--navbar-height) ${
             expandedPost
               ? isSafariMobile
-                ? "+ 90px"
+                ? "+ 105px"
                 : "+ 20px"
               : isSafariMobile
-              ? "+ 80px"
+              ? "+ 95px"
               : "- 10px"
           })`, // Sube 10px
           padding: "0 18px 18px 0",
@@ -241,10 +241,10 @@ const PostComponent = ({ post, activeSection }) => {
           paddingBottom: `calc(var(--navbar-height) ${
             expandedPost
               ? isSafariMobile
-                ? "+ 90px"
-                : "+ 15px"
+                ? "+ 105px"
+                : "+ 30px"
               : isSafariMobile
-              ? "+ 60px"
+              ? "+ 75px"
               : "- 30px"
           })`,
           background:
