@@ -51,7 +51,7 @@ const RestaurantLayout = () => {
    * Sección Principal
    ***************************************************/
   return (
-    <div className="min-h-screen w-full lg:w-[415px] bg-black relative mx-auto h-[800px] overflow-y-auto">
+    <div className="min-h-screen w-full lg:w-[415px] bg-black relative mx-auto h-[800px] overflow-y-auto no-scrollbar">
       {/* MODAL / POP-UP renovado */}
       {showRatePopup && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">

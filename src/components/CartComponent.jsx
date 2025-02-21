@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import useStore from "../store/store";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaThumbsUp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { SECTIONS, translations } from "../data/constants";
 import Modal from "./Modal";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
+import MenuItem from "./MenuItem";
 const CartComponent = () => {
+  const swiperRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const { idMenu } = useStore();
   const [isModalInfoOpen, setIsModalInfoOpen] = useState(false);
   const openModalInfo = () => setIsModalInfoOpen(true);
@@ -28,6 +34,9 @@ const CartComponent = () => {
   const totalAfterDiscount = totalBeforeDiscount - discount;
   const [selectedItem, setSelectedItem] = useState(null);
   const [showFullDetails, setShowFullDetails] = useState(false);
+  const allPosts = SECTIONS.flatMap((section) =>
+    section.posts.filter((post) => post.isFeatured)
+  );
   const buttonVariants = {
     hover: {
       scale: 1.05,
@@ -218,7 +227,7 @@ const CartComponent = () => {
 
   return (
     <div
-      className="min-h-screen bg-black to-black w-full lg:w-[415px] mx-auto
+      className="h-screen w-full lg:w-[415px] bg-black relative mx-auto overflow-y-auto no-scrollbar
   "
     >
       <header className=" top-0 z-10">
@@ -261,15 +270,17 @@ const CartComponent = () => {
                   maxHeight: "100%", // Limita la altura si es necesario
                 }}
               >
-                <div className="md:flex">
-                  <div className="relative">
+                <div className="flex">
+                  <div className="relative group w-[250px] h-auto overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-[250px] h-[129px] object-cover md:rounded-t-none group-hover:translate-x-[-15%] transition-transform duration-500"
+                      className="absolute w-full h-full object-cover rounded-t-none transition-opacity "
                     />
-                    {/* Agregar overlay con difuminado a la derecha */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black opacity-100"></div>
+
+                    {/* Video que aparece en hover */}
+
+                    <div className="absolute  inset-0 bg-gradient-to-r from-transparent to-black opacity-100"></div>
                   </div>
 
                   <div className="p-2  md:w-2/3">
@@ -454,6 +465,38 @@ const CartComponent = () => {
             >
               <span>Pagar</span>
             </button>
+
+            <div className="mb-20 w-full">
+              <div className="space-y-2 ">
+                <Swiper
+                  spaceBetween={10}
+                  slidesPerView={"auto"}
+                  onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+                  onSwiper={(swiper) => (swiperRef.current = swiper)} // Guardamos el swiper en la referencia
+                  className="pb-10"
+                >
+                  {allPosts.map((post, index) => (
+                    <SwiperSlide key={index} className="w-auto">
+                      <MenuItem post={post} postIndex={index} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+              {/* Paginación personalizada */}
+              <div className="flex justify-center space-x-2 mb-20">
+                {allPosts.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => swiperRef.current?.slideTo(index)} // Cambia el slide al hacer clic
+                    className={`rounded-full transition-all ${
+                      activeIndex === index
+                        ? "bg-white w-[12px] h-[5px]"
+                        : "w-[5px] h-[5px] bg-[#E50051]"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         )}
       </div>

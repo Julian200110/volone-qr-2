@@ -74,6 +74,7 @@ const DATA = {
         "Finas lonchas cortadas a mano, sabor y elegancia en cada bocado.",
       video: `${VIDEO_BASE_URL}JAMÓN IBERICO DE BELLOTA.mp4`,
       isChefSuggestion: true,
+      isFeatured: true,
       image: `${VIDEO_BASE_URL}JAMÓN IBERICO DE BELLOTA_001.jpg`,
       allergens: ["almendras"],
       ingredients:
@@ -128,6 +129,7 @@ const DATA = {
       title: "Anchoas de Santoña (Doña tomasa) con Tostada, queso azul ahumado",
       author: "chef",
       price: "21,00€",
+
       description:
         "Delicadas anchoas, servidas con pan tostado crujiente con queso azul ahumado.",
       longDescription:
@@ -154,6 +156,7 @@ const DATA = {
         "Un vibrante encuentro de mariscos frescos, en una sedosa crema de ajo.",
       video: `${VIDEO_BASE_URL}ZAMBURIÑA A LA BRASA.mp4`,
       isChefSuggestion: true,
+      isFeatured: true,
       image: `${VIDEO_BASE_URL}ZAMBURIÑA A LA BRASA_000.jpg`,
       allergens: ["mejillones", "crustaceos"],
       ingredients:
@@ -174,6 +177,7 @@ const DATA = {
       longDescription: "",
       video: `${VIDEO_BASE_URL}CHORIZO CRIOLLO A LA BRASA.mp4`,
       isChefSuggestion: true,
+
       image: `${VIDEO_BASE_URL}CHORIZO CRIOLLO A LA BRASA_026.jpg`,
       allergens: [],
       ingredients:
@@ -347,6 +351,7 @@ const DATA = {
         "Asada al Josper con salsa napolitana y parmesano fundido.",
       video: `${VIDEO_BASE_URL}BERENJENA AL JOSPER.mp4`,
       isChefSuggestion: true,
+      isFeatured: true,
       image: `${VIDEO_BASE_URL}BERENJENA AL JOSPER_000.jpg`,
       allergens: ["mani"],
       ingredients:
@@ -367,6 +372,7 @@ const DATA = {
         "Pulpo braseado, servido con batata asada y alioli de sobrasada.",
       video: `${VIDEO_BASE_URL}PULPO A LA BRASA.mp4`,
       isChefSuggestion: true,
+      isFeatured: true,
       image: `${VIDEO_BASE_URL}PULPO A LA BRASA_014.jpg`,
       allergens: ["mejillones", "mani", "ajonjoli"],
       ingredients:

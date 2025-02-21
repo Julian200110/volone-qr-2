@@ -107,7 +107,7 @@ const MenuItem = ({ post, postIndex }) => {
               opacity: isPlaying ? 0 : 1,
               transition: "opacity 0.5s ease-in",
             }}
-            className="absolute w-full h-full object-cover md:rounded-t-none transition-opacity duration-500 group-hover:opacity-0"
+            className="absolute w-full h-full object-cover rounded-t-none transition-opacity duration-500 group-hover:opacity-0 "
           />
           {isInView && (
             <motion.video
@@ -123,7 +123,7 @@ const MenuItem = ({ post, postIndex }) => {
                   object-cover
                   object-center
                   pointer-events-none
-                  md:rounded-t-none opacity-0 group-hover:opacity-100 transition-opacity duration-500
+                  rounded-t-none opacity-0 group-hover:opacity-100 transition-opacity duration-500
                 "
               loop
               muted
@@ -138,14 +138,25 @@ const MenuItem = ({ post, postIndex }) => {
           )}
           {/* Video que aparece en hover */}
 
-          <div
-            className="absolute inset-0 bg-gradient-to-r from-transparent to-black opacity-100"
-            onMouseLeave={handleMouseLeave}
-          ></div>
+          <div className="absolute  inset-0 bg-gradient-to-r from-transparent to-black opacity-100"></div>
         </div>
 
-        <div className="p-2  md:w-2/3">
-          <div className="flex justify-between items-start">
+        <div className="p-2  w-2/3">
+          {post.isFeatured && (
+            <div className="items-center justify-center bg-[#FF9F06] w-[112px] h-[17px] flex rounded-l-full text-black absolute right-0">
+              <p className="text-[9px] font-manrope font-bold">Destacado</p>
+              <img
+                src="/img/Vector.svg"
+                alt="Vector"
+                className="ml-2 w-[9px] h-[9px]"
+              />
+            </div>
+          )}
+          <div
+            className={`flex justify-between items-start ${
+              post.isFeatured ? "mt-5" : ""
+            }`}
+          >
             <div>
               <h3 className="text-[14px] font-mangoli text-white mb-1">
                 {post.title}

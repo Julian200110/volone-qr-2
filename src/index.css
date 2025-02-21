@@ -21,3 +21,11 @@ body {
   font-family: "mangoli";
   src: url("/public/fonts/Mangoli.ttf");
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Para Firefox */
+.no-scrollbar {
+  scrollbar-width: none;
+}

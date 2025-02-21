@@ -215,7 +215,7 @@ const PostComponent = ({ post, activeSection }) => {
         )}
       </div>
 
-      {post.isHighlight && (
+      {post.isFeatured && (
         <div
           className="absolute flex flex-col gap-4 z-30 justify-center right-0"
           style={{
@@ -245,7 +245,7 @@ const PostComponent = ({ post, activeSection }) => {
                 : "+ 30px"
               : isSafariMobile
               ? "+ 75px"
-              : "- 10px"
+              : "+ 10px"
           })`,
           background:
             "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.8) 100%)",
@@ -254,7 +254,6 @@ const PostComponent = ({ post, activeSection }) => {
         <section
           className="w-full items-end justify-between"
           style={{
-            maxHeight: "185px",
             padding: "10px 20px 20px",
             wordBreak: "break-word",
           }}
