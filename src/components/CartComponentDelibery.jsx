@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import useStore from "../store/store";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaThumbsUp } from "react-icons/fa";
@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
 import MenuItem from "./MenuItem";
-const CartComponent = () => {
+const CartComponentDelivery = () => {
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const { idMenu } = useStore();
@@ -20,20 +20,6 @@ const CartComponent = () => {
   const closeModalInfo = () => setIsModalInfoOpen(false);
   const { cartItems, updateQuantity } = useStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [servidos, setServidos] = useState([]); // Estado para los elementos servidos
-  const [porServir, setPorServir] = useState([...cartItems]);
-  const [index, setIndex] = useState(0); // Control del índice
-  useEffect(() => {
-    if (index < cartItems.length) {
-      const timeoutId = setTimeout(() => {
-        setServidos((prev) => [...prev, cartItems[index]]); // Agrega el elemento actual
-        setPorServir((prev) => prev.slice(1));
-        setIndex((prevIndex) => prevIndex + 1); // Incrementa el índice
-      }, 5000);
-
-      return () => clearTimeout(timeoutId); // Limpia el timeout para evitar acumulación
-    }
-  }, [index, cartItems]);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -266,219 +252,14 @@ const CartComponent = () => {
             No tienes pedidos actualmente
           </p>
         ) : (
-          <div>
-            <div className="flex items-center justify-center gap-2">
-              <div className="border-b-2 border-dashed border-[#E50051]  w-[110px]"></div>
-              <p className="font-mangoli text-[14px]">Ya servidos</p>
-              <div className="border-b-2 border-dashed border-[#E50051]  w-[110px]"></div>
-            </div>
-            {servidos.map((item) => (
+          <div className="space-y-4">
+            {cartItems.map((item) => (
               <div
                 key={`{${item.id} - ${item.title}`}
                 className={`bg-black overflow-hidden
   hover:shadow-[#E50051]/20 transition-all duration-500
   border border-gray-800/50 hover:border-[#E50051]
-  backdrop-blur-sm group my-5 shadow-none 
-  ${isDelete ? "translate-x-[-30%] transition-transform duration-500 " : ""}
-`}
-                style={{
-                  boxShadow:
-                    "0px 4px 6px rgba(229, 0, 81, 0.3), 0px -4px 6px rgba(229, 0, 81, 0.3)",
-                  overflow: "hidden", // Asegúrate de que el contenido no se desborde
-                  maxWidth: "100%", // Limita el ancho si es necesario
-                  maxHeight: "100%", // Limita la altura si es necesario
-                }}
-              >
-                <div className="flex">
-                  <div className="relative group w-[250px] h-auto overflow-hidden">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="absolute w-full h-full object-cover rounded-t-none transition-opacity "
-                    />
-
-                    {/* Video que aparece en hover */}
-
-                    <div className="absolute  inset-0 bg-gradient-to-r from-transparent to-black opacity-100"></div>
-                  </div>
-
-                  <div className="p-2  md:w-2/3">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <h3 className="text-[14px] font-semibold text-white mb-1">
-                          {item.title}
-                        </h3>
-                        <div className="justify-start text-center flex items-center text-[7px] text-[#FF9F06] underline mb-2">
-                          <img
-                            src="/img/Sugerencia.svg"
-                            alt="Vector"
-                            className="mr-2 w-3 h-3"
-                          />
-                          <p>SUGERENCIA DEL CHEF</p>{" "}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex justify-between items-start mb-1">
-                      <div>
-                        <p className="text-[10px] text-gray-300 mb-0 leading-none">
-                          {item.description}
-                        </p>
-                        <button
-                          // onClick={() => {
-                          //   setSelectedItem(item);
-                          //   setShowFullDetails(true);
-                          // }}
-                          onClick={() => {
-                            openModal();
-                            setSelectedItem(item);
-                          }}
-                          className="text-[9px] font-bold underline mt-0 inline-block text-white"
-                        >
-                          Detalles
-                        </button>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center justify-between border w-auto gap-2 rounded-full px-2 bg-[#575757] h-[16px]">
-                        <button
-                          onClick={() =>
-                            updateQuantity(item.title, item.quantity - 1)
-                          }
-                          className="text-[#868686] active:text-[#E50051]"
-                        >
-                          <svg
-                            width="8"
-                            height="3"
-                            viewBox="0 0 8 3"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <rect
-                              y="0.5"
-                              width="8"
-                              height="2"
-                              rx="1"
-                              className="fill-current"
-                            />
-                          </svg>
-                        </button>
-                        <span className="text-white text-[10px] text-center font-bold">
-                          {item.quantity}
-                        </span>
-                        <button
-                          onClick={() =>
-                            updateQuantity(item.title, item.quantity + 1)
-                          }
-                          className="text-[#868686] active:text-[#E50051]"
-                        >
-                          <svg
-                            width="8"
-                            height="9"
-                            viewBox="0 0 8 9"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6.95398 3.45425H5.04603V1.54575C5.04603 0.968497 4.57845 0.5 4 0.5C3.42155 0.5 2.95398 0.968497 2.95398 1.54575V3.45425H1.04603C0.467573 3.45425 0 3.92274 0 4.5C0 5.07725 0.467573 5.54575 1.04603 5.54575H2.95398V7.45425C2.95398 8.0315 3.42155 8.5 4 8.5C4.57845 8.5 5.04603 8.0315 5.04603 7.45425V5.54575H6.95398C7.53243 5.54575 8 5.07725 8 4.5C8 3.92274 7.53243 3.45425 6.95398 3.45425Z"
-                              className="fill-current"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                      <div className="flex gap-3">
-                        <button>
-                          <svg
-                            width="13"
-                            height="12"
-                            viewBox="0 0 13 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M9.38593 0C8.91168 0 8.44201 0.0979435 8.00374 0.288302C7.5655 0.47865 7.16715 0.757709 6.83153 1.10967L6.49984 1.45736L6.16816 1.10967C5.49025 0.399058 4.57136 0.000326821 3.61376 0.000326846C2.65616 0.000326846 1.73727 0.399058 1.05936 1.10967C0.381368 1.82038 0 2.78488 0 3.79116C0 4.79743 0.381368 5.76194 1.05936 6.47264L6.2135 11.8754C6.37194 12.0415 6.62775 12.0415 6.78619 11.8754L11.9403 6.47271C12.276 6.12089 12.5426 5.70295 12.7245 5.24285C12.9063 4.7827 13 4.2894 13 3.79116C13 3.29291 12.9063 2.79961 12.7245 2.33947C12.5426 1.87939 12.2761 1.46155 11.9404 1.10974C11.6048 0.757747 11.2064 0.478663 10.7681 0.288302C10.3298 0.0979435 9.86018 0 9.38593 0Z"
-                              fill="#E50051"
-                            />
-                          </svg>
-                        </button>
-                        <button onClick={() => setIsDelete(true)}>
-                          <svg
-                            width="11"
-                            height="12"
-                            viewBox="0 0 11 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M10.5 2H7.63636V1C7.63636 0.4485 7.20825 0 6.68182 0H3.81818C3.29175 0 2.86364 0.4485 2.86364 1V2H0V3H0.784636L1.59743 10.6655C1.67809 11.426 2.28995 12 3.02066 12H7.4612C8.19191 12 8.80377 11.4265 8.88396 10.6655L9.69675 3H10.4995L10.5 2ZM3.81818 1H6.68182V2H3.81818V1ZM7.93514 10.555C7.90841 10.8085 7.70461 11 7.46073 11H3.02066C2.77725 11 2.57298 10.8085 2.54625 10.555L1.74491 3H8.73695L7.93561 10.555H7.93514ZM3.36143 8.2715L4.57514 7L3.36143 5.7285L4.0363 5.0215L5.25 6.293L6.4637 5.0215L7.13857 5.7285L5.92486 7L7.13857 8.2715L6.4637 8.9785L5.25 7.707L4.0363 8.9785L3.36143 8.2715Z"
-                              fill="white"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    {/* <div className="flex justify-between items-center">
-                        <div className="flex space-x-6">
-                          <button
-                            onClick={() => toggleFavorite(post.title)}
-                            className={`p-3 rounded-full ${
-                              favorites.includes(post.title)
-                                ? "text-red-500"
-                                : "text-gray-400"
-                            } hover:text-red-500 transition-colors duration-300 transform hover:scale-110`}
-                          >
-                            <FaHeart className="text-[10px]" />
-                          </button>
-                          <button
-                            ref={(el) => (buttonRefs.current[postIndex] = el)}
-                            onClick={() => handleAddToCart(post, postIndex)}
-                            className="rounded-full bg-gradient-to-r from-[#E50051] to-[#e59200] 
-                                   hover:from-[#e59200] hover:to-[#E50051] text-white 
-                                   transition-all duration-500 transform hover:-translate-y-1 
-                                   shadow-lg hover:shadow-[#E50051]/20"
-                          >
-                            <FaPlus className="text-[10px]" />
-                          </button>
-                        </div>
-                      </div> */}
-                  </div>
-                </div>
-
-                {/* Botones para la cantidad */}
-                {/* <div className="flex items-center space-x-3">
-                  <button
-                    onClick={() =>
-                      updateQuantity(item.title, item.quantity - 1)
-                    }
-                    className="text-white bg-gray-700 hover:bg-gray-600 px-3 py-1
-                                     rounded-lg transition-colors duration-300"
-                  >
-                    -
-                  </button>
-                  <span className="text-white font-medium w-8 text-center">
-                    {item.quantity}
-                  </span>
-                  <button
-                    onClick={() =>
-                      updateQuantity(item.title, item.quantity + 1)
-                    }
-                    className="text-white bg-gray-700 hover:bg-gray-600 px-3 py-1
-                                     rounded-lg transition-colors duration-300"
-                  >
-                    +
-                  </button>
-                </div> */}
-              </div>
-            ))}{" "}
-            <div className="flex items-center justify-center gap-2">
-              <div className="border-b-2 border-dashed border-[#E50051]  w-[110px]"></div>
-              <p className="font-mangoli text-[14px]">Se van a servir</p>
-              <div className="border-b-2 border-dashed border-[#E50051]  w-[110px]"></div>
-            </div>
-            {porServir.map((item) => (
-              <div
-                key={`{${item.id} - ${item.title}`}
-                className={`bg-black overflow-hidden
-  hover:shadow-[#E50051]/20 transition-all duration-500
-  border border-gray-800/50 hover:border-[#E50051]
-  backdrop-blur-sm group my-5 shadow-none 
+  backdrop-blur-sm group my-4 shadow-none 
   ${isDelete ? "translate-x-[-30%] transition-transform duration-500 " : ""}
 `}
                 style={{
@@ -667,39 +448,54 @@ const CartComponent = () => {
                 </div> */}
               </div>
             ))}
-            <div className="flex gap-[50px] items-center justify-center mt-[60px]">
-              <button
-                onClick={() => setDiscountApplied(true)}
-                className="flex items-center justify-center bg-[#E50051]  w-[110px] 
+
+            <button
+              onClick={() => setDiscountApplied(true)}
+              className="flex items-center justify-center bg-[#E50051]  w-[96px] 
                                    text-white rounded-full transition-all duration-500
                                    transform hover:-translate-y-1 font-semibold shadow-lg
-                                   hover:shadow-[#E50051]/20 space-x-2 h-[29px]  text-[12px]"
-                style={{
-                  boxShadow:
-                    "0px 4px 6px rgba(229, 0, 81, 0.3), 0px -4px 6px rgba(229, 0, 81, 0.3)",
-                  // Asegúrate de que el contenido no se desborde
-                  maxWidth: "100%", // Limita el ancho si es necesario
-                  maxHeight: "100%", // Limita la altura si es necesario
-                }}
-              >
-                <span>Enviar comanda</span>
-              </button>
-              <button
-                onClick={() => setDiscountApplied(true)}
-                className="flex items-center justify-center bg-[#E50051]  w-[96px] 
-                                   text-white rounded-full transition-all duration-500
-                                   transform hover:-translate-y-1 font-semibold shadow-lg
-                                   hover:shadow-[#E50051]/20 space-x-2 h-[29px]  text-[12px]"
-                style={{
-                  boxShadow:
-                    "0px 4px 6px rgba(229, 0, 81, 0.3), 0px -4px 6px rgba(229, 0, 81, 0.3)",
-                  // Asegúrate de que el contenido no se desborde
-                  maxWidth: "100%", // Limita el ancho si es necesario
-                  maxHeight: "100%", // Limita la altura si es necesario
-                }}
-              >
-                <span>Pagar</span>
-              </button>
+                                   hover:shadow-[#E50051]/20 space-x-2 h-[29px] mx-auto text-[12px]"
+              style={{
+                boxShadow:
+                  "0px 4px 6px rgba(229, 0, 81, 0.3), 0px -4px 6px rgba(229, 0, 81, 0.3)",
+                margin: "40px auto auto auto ", // Asegúrate de que el contenido no se desborde
+                maxWidth: "100%", // Limita el ancho si es necesario
+                maxHeight: "100%", // Limita la altura si es necesario
+              }}
+            >
+              <span>Pagar</span>
+            </button>
+
+            <div className="mb-20 w-full">
+              <div className="space-y-2 ">
+                <Swiper
+                  spaceBetween={10}
+                  slidesPerView={"auto"}
+                  onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+                  onSwiper={(swiper) => (swiperRef.current = swiper)} // Guardamos el swiper en la referencia
+                  className="pb-10"
+                >
+                  {allPosts.map((post, index) => (
+                    <SwiperSlide key={index} className="w-auto">
+                      <MenuItem post={post} postIndex={index} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+              {/* Paginación personalizada */}
+              <div className="flex justify-center space-x-2 mb-20">
+                {allPosts.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => swiperRef.current?.slideTo(index)} // Cambia el slide al hacer clic
+                    className={`rounded-full transition-all ${
+                      activeIndex === index
+                        ? "bg-white w-[12px] h-[5px]"
+                        : "w-[5px] h-[5px] bg-[#E50051]"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         )}
@@ -799,4 +595,4 @@ const CartComponent = () => {
   );
 };
 
-export default CartComponent;
+export default CartComponentDelivery;

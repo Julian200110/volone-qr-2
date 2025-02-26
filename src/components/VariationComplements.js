@@ -1,6 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 
-const VariationComplements = ({ isOpen, onClose, selectedItem, children }) => {
+const VariationComplements = ({
+  isOpen,
+  onCloseVariation,
+  selectedItem,
+  children,
+}) => {
   if (!isOpen) return null;
   const [text, setText] = useState("");
 
@@ -8,12 +13,12 @@ const VariationComplements = ({ isOpen, onClose, selectedItem, children }) => {
   return (
     <div className="fixed inset-0  flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-black p-6 translate-y-[190px] rounded-[14px] shadow-lg relative max-w-[360px] w-full border border-[#E50051] h-[210px]">
-        {/* <button
+        <button
           className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-          onClick={onClose}
+          onClick={onCloseVariation}
         >
           &times;
-        </button> */}
+        </button>
 
         <div>Hola</div>
         {/* 

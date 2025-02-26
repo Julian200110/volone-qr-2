@@ -153,7 +153,7 @@ const Modal = ({ isOpen, onClose, selectedItem, children }) => {
       </div>
       <VariationComplements
         isOpen={isVariationlOpen}
-        selectedItem={selectedItem}
+        onCloseVariation={closeModal}
       ></VariationComplements>
     </div>
   );
