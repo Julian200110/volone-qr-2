@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import VariationComplements from "./VariationComplements";
 
-const LogOut = ({ isOpen, onClose, selectedItem, children }) => {
+const LogOut = ({ isOpen, onClose, selectedItem, children, message }) => {
   if (!isOpen) return null;
   const [text, setText] = useState("");
   const textareaRef = useRef(null);
@@ -17,7 +17,7 @@ const LogOut = ({ isOpen, onClose, selectedItem, children }) => {
         >
           &times;
         </button> */}
-        <p>Su sesión se ha cerrado</p>
+        <p>{message}</p>
       </div>
     </div>
   );

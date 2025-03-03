@@ -11,7 +11,28 @@ import "swiper/css";
 import "swiper/css/pagination";
 import ModalFavoritesRestaurants from "./ModalFavoritesRestaurants";
 import MenuItem from "./MenuItem";
+import PayModal from "./PayModal";
+import LogOut from "./LogOut";
+
 const CartComponent = () => {
+  const [isModalLogOutOpen, setIsModalLogOutOpen] = useState(false);
+  const openModalLogOut = () => setIsModalLogOutOpen(true);
+  const closeModalLogOut = () => setIsModalLogOutOpen(false);
+  const handleOpenModalLogOut = () => {
+    openModalLogOut(); // Abre el modal
+    setTimeout(() => {
+      closeModalLogOut(); // Cierra el modal después de 5 segundos
+    }, 3000);
+    if (index < cartItems.length) {
+      const timeoutId = setTimeout(() => {
+        setServidos((prev) => [...prev, cartItems[index]]); // Agrega el elemento actual
+        setPorServir((prev) => prev.slice(1));
+        setIndex((prevIndex) => prevIndex + 1); // Incrementa el índice
+      }, 6000);
+
+      return () => clearTimeout(timeoutId); // Limpia el timeout para evitar acumulación
+    }
+  };
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const { idMenu } = useStore();
@@ -20,23 +41,16 @@ const CartComponent = () => {
   const closeModalInfo = () => setIsModalInfoOpen(false);
   const { cartItems, updateQuantity } = useStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPayModalOpen, setIsPayModalOpen] = useState(false);
   const [servidos, setServidos] = useState([]); // Estado para los elementos servidos
   const [porServir, setPorServir] = useState([...cartItems]);
   const [index, setIndex] = useState(0); // Control del índice
-  useEffect(() => {
-    if (index < cartItems.length) {
-      const timeoutId = setTimeout(() => {
-        setServidos((prev) => [...prev, cartItems[index]]); // Agrega el elemento actual
-        setPorServir((prev) => prev.slice(1));
-        setIndex((prevIndex) => prevIndex + 1); // Incrementa el índice
-      }, 5000);
-
-      return () => clearTimeout(timeoutId); // Limpia el timeout para evitar acumulación
-    }
-  }, [index, cartItems]);
+  // useEffect(() => {}, [index, cartItems]);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  const openPayModal = () => setIsPayModalOpen(true);
+  const closePayModal = () => setIsPayModalOpen(false);
   const navigate = useNavigate();
   const [discountApplied, setDiscountApplied] = useState(false);
   const totalBeforeDiscount = cartItems.reduce((sum, item) => {
@@ -667,17 +681,14 @@ const CartComponent = () => {
                 </div> */}
               </div>
             ))}
-            <div className="flex gap-[50px] items-center justify-center mt-[60px]">
+            <div className="flex gap-[50px] items-center justify-center mt-[60px] mb-[90px]">
               <button
-                onClick={() => setDiscountApplied(true)}
+                onClick={() => handleOpenModalLogOut()}
                 className="flex items-center justify-center bg-[#E50051]  w-[110px] 
                                    text-white rounded-full transition-all duration-500
                                    transform hover:-translate-y-1 font-semibold shadow-lg
                                    hover:shadow-[#E50051]/20 space-x-2 h-[29px]  text-[12px]"
                 style={{
-                  boxShadow:
-                    "0px 4px 6px rgba(229, 0, 81, 0.3), 0px -4px 6px rgba(229, 0, 81, 0.3)",
-                  // Asegúrate de que el contenido no se desborde
                   maxWidth: "100%", // Limita el ancho si es necesario
                   maxHeight: "100%", // Limita la altura si es necesario
                 }}
@@ -685,15 +696,11 @@ const CartComponent = () => {
                 <span>Enviar comanda</span>
               </button>
               <button
-                onClick={() => setDiscountApplied(true)}
                 className="flex items-center justify-center bg-[#E50051]  w-[96px] 
                                    text-white rounded-full transition-all duration-500
                                    transform hover:-translate-y-1 font-semibold shadow-lg
                                    hover:shadow-[#E50051]/20 space-x-2 h-[29px]  text-[12px]"
                 style={{
-                  boxShadow:
-                    "0px 4px 6px rgba(229, 0, 81, 0.3), 0px -4px 6px rgba(229, 0, 81, 0.3)",
-                  // Asegúrate de que el contenido no se desborde
                   maxWidth: "100%", // Limita el ancho si es necesario
                   maxHeight: "100%", // Limita la altura si es necesario
                 }}
@@ -791,10 +798,20 @@ const CartComponent = () => {
         onClose={closeModal}
         selectedItem={selectedItem}
       ></Modal>
+      <PayModal
+        isOpen={isPayModalOpen}
+        onClose={closePayModal}
+        selectedItem={selectedItem}
+      ></PayModal>
       <ModalFavoritesRestaurants
         isOpen={isModalInfoOpen}
         onClose={closeModalInfo}
       ></ModalFavoritesRestaurants>
+      <LogOut
+        isOpen={isModalLogOutOpen}
+        onClose={closeModalLogOut}
+        message={"Su comanda ha sido enviada"}
+      ></LogOut>
     </div>
   );
 };

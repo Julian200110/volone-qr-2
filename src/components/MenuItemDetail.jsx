@@ -40,7 +40,7 @@ const MenuItemDetail = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-100"></div>
           </div>
 
-          <div className="p-8 bg-black">
+          <div className="p-8 pr-4 bg-black">
             <div className="flex justify-between items-start ">
               <div>
                 <div className="flex justify-between items-start">
@@ -78,10 +78,9 @@ const MenuItemDetail = () => {
                 </div>
               </div>
 
-              <div className="text-base font-mangoli text-white border border-white rounded-[14px] p-2 flex flex-col w-[97px] h-[62.3px] items-center justify-center bg-[#A4A4A4]/50 backdrop-blur-md  text-center">
-                <p className="text-sm">Precio</p>{" "}
-                {/* Tamaño más pequeño para "Precio" */}
-                <p className="text-[14px]">{selectedItem.price}</p>{" "}
+              <div className="text-base text-[12px] font-mangoli text-white border border-white rounded-[14px] p-5 flex flex-col w-auto h-[62.3px] items-center justify-center bg-[#A4A4A4]/50 backdrop-blur-md  text-center">
+                <p>Precio</p> {/* Tamaño más pequeño para "Precio" */}
+                <p>{selectedItem.price}</p>{" "}
                 {/* Tamaño más grande para el precio */}
               </div>
             </div>

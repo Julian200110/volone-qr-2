@@ -218,7 +218,11 @@ const Profile = () => {
           </button>
         </div>
       </motion.nav>
-      <LogOut isOpen={isModalLogOutOpen} onClose={closeModalLogOut}></LogOut>
+      <LogOut
+        isOpen={isModalLogOutOpen}
+        onClose={closeModalLogOut}
+        message={"Su sesión se ha cerrado"}
+      ></LogOut>
       <ModalFavoritesRestaurants
         isOpen={isModalInfoOpen}
         onClose={closeModalInfo}
