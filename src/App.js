@@ -10,6 +10,7 @@ import FavoritesRestaurants from "./components/FavoritesRestaurants";
 import ChangePassword from "./components/ChangePassword";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
+import ForgotPassword from "./components/ForgotPassword";
 function App() {
   return (
     <Router>
@@ -23,6 +24,7 @@ function App() {
           <Route path="/perfil" element={<Profile />} />
           <Route path="/iniciarsesion" element={<LogIn />} />
           <Route path="/registrarse" element={<SignUp />} />
+          <Route path="/recuperarcontraseña" element={<ForgotPassword />} />
           <Route
             path="/restaurantefavorito"
             element={<FavoritesRestaurants />}

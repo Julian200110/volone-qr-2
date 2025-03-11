@@ -696,6 +696,9 @@ const CartComponent = () => {
                 <span>Enviar comanda</span>
               </button>
               <button
+                onClick={() => {
+                  openPayModal();
+                }}
                 className="flex items-center justify-center bg-[#E50051]  w-[96px] 
                                    text-white rounded-full transition-all duration-500
                                    transform hover:-translate-y-1 font-semibold shadow-lg

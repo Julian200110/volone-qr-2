@@ -19,6 +19,10 @@ const isSafariMobile =
   /^((?!chrome|android).)*safari/i.test(navigator.userAgent) &&
   /iPhone|iPad|iPod/.test(navigator.userAgent);
 
+const isChromeIOS =
+  /CriOS/i.test(navigator.userAgent) &&
+  /iPhone|iPad|iPod/.test(navigator.userAgent);
+
 const PostComponent = ({ post, activeSection }) => {
   const [expandedPost, setExpandedPost] = useState(false);
   // Función para manejar el clic en el "Ver más"
@@ -191,10 +195,10 @@ const PostComponent = ({ post, activeSection }) => {
         style={{
           paddingBottom: `calc(var(--navbar-height) ${
             expandedPost
-              ? isSafariMobile
+              ? isSafariMobile || isChromeIOS
                 ? "+ 105px"
                 : "+ 30px"
-              : isSafariMobile
+              : isSafariMobile || isChromeIOS
               ? "+ 75px"
               : "+ 10px"
           })`,
